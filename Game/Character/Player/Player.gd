@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var move_speed : float = 4.0
+var move_speed : float = 3.0
 
 var velocity : Vector3 = Vector3.ZERO
 
