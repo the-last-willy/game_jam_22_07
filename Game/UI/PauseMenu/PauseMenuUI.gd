@@ -18,6 +18,9 @@ func pause():
 func exit_to_main_menu():
 	resume()
 	var _error_code = get_tree().change_scene_to(main_menu)
+	
+func quit():
+	get_tree().quit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

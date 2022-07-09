@@ -42,7 +42,7 @@ text = "Resume"
 margin_top = 222.0
 margin_right = 158.0
 margin_bottom = 242.0
-text = "Options"
+text = "Quit game"
 
 [node name="Exit" type="Button" parent="HBoxContainer"]
 margin_top = 252.0
@@ -51,4 +51,5 @@ margin_bottom = 272.0
 text = "Exit to main menu"
 
 [connection signal="pressed" from="HBoxContainer/Resume" to="." method="resume"]
+[connection signal="pressed" from="HBoxContainer/Options" to="." method="quit"]
 [connection signal="pressed" from="HBoxContainer/Exit" to="." method="exit_to_main_menu"]
