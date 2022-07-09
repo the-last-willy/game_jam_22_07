@@ -1,12 +1,19 @@
 extends Node
 
+signal current_charge_updated
 
 export(NodePath) var game_ui_path
 
+var level
 var game_ui_instance
 var game_end_instance
 var anger
 var lift
+var current_charge: float = 0
+
+func _on_Level_ready():
+	connect_to_all_passengers()
+	update_current_charge()
 
 func _process(delta):
 	update_global_anger(delta)
@@ -30,7 +37,7 @@ func update_global_anger(delta):
 	anger = game_ui_instance.get_stress()
 	anger = anger - 0.1 * delta
 	game_ui_instance.update_stress(anger)
-	if(anger >= 100):
+	if(anger >= 90):
 		return
 	
 func update_global_lift(delta):
@@ -43,12 +50,33 @@ func update_global_lift(delta):
 		game_over()
 
 func object_thrown(weight):
-	if(game_ui_instance == null):
+	if(game_ui_instance == null || anger >= 100):
 		return
 	anger = game_ui_instance.get_stress()
-	anger = anger + 3 * weight
+	anger = anger + 10 * weight
 	lift = game_ui_instance.get_lift()
 	lift = lift + 0.9 * weight
 	game_ui_instance.update_lift(lift)
 	game_ui_instance.update_stress(anger)
 
+func connect_to_all_passengers():
+	var passengers = level.get_tree().get_nodes_in_group("passengers")
+	for passenger in passengers:
+		passenger.connect("ejected", self, "_on_Passenger_ejected")
+
+func update_current_charge():
+	current_charge = 0
+	for passenger in level.get_tree().get_nodes_in_group("passengers"):
+		current_charge += passenger.get_weight()
+	emit_signal("current_charge_updated", current_charge)
+
+func _on_Passenger_ejected(_ejected_passenger: Node):
+	update_current_charge()
+
+#func anger_for_all_passengers():
+	#var passengers = level.get_tree().get_nodes_in_group("passengers")
+	#for passenger in passengers:
+	#	passenger.connect("ejected", self, "_on_Passenger_ejected_anger")
+
+func _on_Passenger_ejected_anger(ejected_passenger: Node):
+	ejected_passenger.ejected_passenger()
