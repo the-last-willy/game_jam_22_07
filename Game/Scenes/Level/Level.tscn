@@ -19,6 +19,8 @@ script = ExtResource( 8 )
 transform = Transform( -0.956443, 0.203733, -0.209069, 0, 0.716187, 0.697908, 0.29192, 0.667509, -0.684992, -4.15276, 13.5999, -12.5844 )
 current = true
 fov = 30.0
+near = 0.1
+far = 1000.0
 
 [node name="ConfrotationCamera" type="Camera" parent="ConfrontationManager"]
 transform = Transform( -0.611929, 0.29116, -0.73537, 0, 0.929774, 0.368131, 0.790913, 0.22527, -0.568955, -0.00688577, 1.50674, 0.930075 )
