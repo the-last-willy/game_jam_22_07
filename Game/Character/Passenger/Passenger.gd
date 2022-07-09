@@ -11,7 +11,8 @@ func set_speed(_speed):
 
 func set_strength(_strength):
 	strength = _strength
-	
+	$Label.text = str(strength)
+
 func set_fear(_fear):
 	fear = _fear
 	
@@ -36,6 +37,9 @@ func get_anger():
 	
 func get_protector():
 	return protector
+
+func _process(delta):
+	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
 
 func _on_Area_body_entered(body):
 	if body as Player:
