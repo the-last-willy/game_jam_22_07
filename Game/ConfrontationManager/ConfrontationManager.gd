@@ -38,7 +38,7 @@ func _process(delta):
 			get_tree().call_group("GameManager", "game_over")
 		else:
 			opponent.queue_free()
-			get_tree().call_group("GameManager", "object_thrown")
+			get_tree().call_group("GameManager", "object_thrown",1.5)
 			
 		player = null
 		opponent = null

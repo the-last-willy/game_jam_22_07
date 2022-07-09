@@ -46,7 +46,7 @@ func generate_random() :
 	var temper = character.get_temper()
 	var caliber = character.get_caliber()
 	var status = character.get_status()
-	var special = character.get_special()
+	#var special = character.get_special()
 	
 	speed = temper["speed"] * caliber["speed"] * status["speed"]
 	strength = temper["strength"] * caliber["strength"] * status["strength"]

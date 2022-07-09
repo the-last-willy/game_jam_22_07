@@ -45,7 +45,7 @@ var caliber = {
 		"fear" : 2.0,
 		"anger" : 1.0,
 		"protector" : 0.5,
-		"strength" : 1.0
+		"strength" : 0.5
 	},
 	"Normal" : {
 		"speed" : 1.0,
