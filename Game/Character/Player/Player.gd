@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody
 
 const CONTROLLER_DEADZONE = 0.2
@@ -13,8 +14,36 @@ var velocity : Vector3 = Vector3.ZERO
 
 var input_camera_space : bool = false
 
-func _physics_process(delta):
+var near_passengers := []
+
+func _physics_process(_delta : float) -> void:
+	move()
 	
+	if Input.is_action_just_pressed("grab"):
+		grab_passenger()
+
+func get_nearest_passenger() -> Spatial:
+	if near_passengers.empty():
+		return null
+	
+	var nearest_passenger : Spatial = near_passengers[0]
+	var nearest_distance : float = INF
+	
+	for passenger in near_passengers:
+		var dist :=  global_transform.origin.distance_squared_to(passenger.global_transform.origin)
+		if dist < nearest_distance:
+			nearest_passenger = passenger
+			nearest_distance = dist
+			
+		
+	return nearest_passenger
+
+func grab_passenger() -> void:
+	var nearest_passenger := get_nearest_passenger()
+	if nearest_passenger:
+		nearest_passenger.queue_free()
+
+func move() -> void:
 	var input_dir = Input.get_vector(
 		"move_left", "move_right", 
 		"move_backward", "move_forward",
@@ -43,3 +72,9 @@ func _input(event : InputEvent) -> void:
 		control_mode = CONTROL_MODE_CONTROLLER
 	elif (event is InputEventKey) or (event is InputEventMouseButton):
 		control_mode = CONTROL_MODE_KEYBOARD
+
+func add_near_passenger(passenger : Spatial) -> void:
+	near_passengers.append(passenger)
+
+func remove_near_passenger(passenger : Spatial) -> void:
+	near_passengers.erase(passenger)
