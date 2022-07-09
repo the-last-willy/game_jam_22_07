@@ -49,6 +49,7 @@ func _process(delta):
 			player = null
 		else:
 			opponent.queue_free()
+			get_tree().call_group("GameManager", "object_thrown",opponent.weight)
 			opponent = null
 		
 		stop_confront()
