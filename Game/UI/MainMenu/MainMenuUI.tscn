@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/UI/MainMenu/MainMenuUI.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/UI_Navigate.wav" type="AudioStream" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -44,5 +45,10 @@ margin_right = 192.0
 margin_bottom = 256.0
 text = "Quit"
 
+[node name="UI_Navigate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="focus_exited" from="VBoxContainer/Play" to="." method="play_navigate_sound"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="focus_exited" from="VBoxContainer/Quit" to="." method="play_navigate_sound"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

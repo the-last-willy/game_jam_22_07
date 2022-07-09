@@ -4,16 +4,20 @@ var is_paused : bool = false
 
 var main_menu = load("res://Game/Scenes/Main/Main.tscn")
 
+func play_navigate_sound():
+	if is_paused:
+		$UI_Navigate.play()
+
 func resume():
-	is_paused = false
 	get_tree().paused = false
 	visible = false
+	is_paused = false
 	
 func pause():
-	is_paused = true
-	get_tree().paused = true
 	visible = true
+	get_tree().paused = true
 	$HBoxContainer/Resume.grab_focus()
+	is_paused = true
 
 func exit_to_main_menu():
 	resume()
