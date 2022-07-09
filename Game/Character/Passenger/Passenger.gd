@@ -71,7 +71,7 @@ func _ready():
 
 func _process(delta):
 	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
-	$Label.text = str(strength)
+	$Label.text = str(angryness)
 	var randVal = randi() % 100 * anger
 	var randVal2 = randi() % 100 * fear
 	if(randVal < 75 ) :
@@ -106,6 +106,7 @@ func update_terrless(delta):
 		terrless -= (randVal / fear) * delta * 0.01
 	
 func ejected_passenger():
+	print("ohhhh")
 	var randVala = randi() % 100 * anger
 	var randValf = randi() % 100 * fear
 	if(randVala > 50 ) :

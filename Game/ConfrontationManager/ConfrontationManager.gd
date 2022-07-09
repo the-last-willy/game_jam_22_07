@@ -56,7 +56,7 @@ func _process(delta):
 			opponent.eject()
 			opponent.queue_free()
 			GameManager.object_thrown(opponent.weight + luggage_weight)
-			#GameManager.anger_for_all_passengers()
+			GameManager.update_passenger_angry()
 			opponent = null
 		
 		stop_confront()

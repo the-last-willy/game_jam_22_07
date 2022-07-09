@@ -73,6 +73,9 @@ func unregister_passenger(passenger: Node):
 	passengers.erase(passenger)
 	emit_signal("current_load_updated", current_load)
 	
+func update_passenger_angry():
+	for passenger in passengers:
+		passenger.ejected_passenger()
 #func anger_for_all_passengers():
 	#var passengers = level.get_tree().get_nodes_in_group("passengers")
 	#for passenger in passengers:
