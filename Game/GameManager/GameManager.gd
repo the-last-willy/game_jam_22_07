@@ -40,9 +40,9 @@ func update_global_lift(delta):
 
 func object_thrown(weight):
 	var anger = game_ui_instantiate.get_stress()
-	anger = anger + 5 * weight
+	anger = anger + 0.7 * weight
 	var lift = game_ui_instantiate.get_lift()
-	lift = lift + 5 * weight
+	lift = lift + 0.7 * weight
 	game_ui_instantiate.update_lift(lift)
 	game_ui_instantiate.update_stress(anger)
 	

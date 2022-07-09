@@ -10,25 +10,25 @@ var Special = ["Lovers", "Copilote","Galinette", "Steward", "Star", "SuperMan","
 
 var temper = {
 	"Noisy" : { 
-		"speed" : 0.5,
-		"fear" : 0.5,
-		"anger" : 2.0,
-		"strength" : 2.0,
-		"protector" : 2.0
+		"speed" : 0.75,
+		"fear" : 0.75,
+		"anger" : 1.5,
+		"strength" : 1.5,
+		"protector" : 1.5,
 	},
 	"Shy" : {
-		"speed" : 0.5,
-		"fear" : 2.0,
-		"anger" : 0.5,
+		"speed" : 0.75,
+		"fear" : 1.5,
+		"anger" : 0.75,
 		"strength" : 1.0,
-		"protector" : 0.5
+		"protector" : 0.75
 	},
 	"Paranoid" : {
-		"speed" : 0.5,
-		"fear" : 2.0,
-		"anger" : 2.0,
+		"speed" : 0.75,
+		"fear" : 1.5,
+		"anger" : 1.5,
 		"strength" : 1.0,
-		"protector" : 2.0
+		"protector" : 1.5
 	},
 	"Normal" : {
 		"speed" : 1.0,
@@ -41,41 +41,45 @@ var temper = {
 
 var caliber = {
 	"Skinny" : {
-		"speed" : 2.0,
-		"fear" : 2.0,
+		"speed" : 1.5,
+		"fear" : 1.5,
 		"anger" : 1.0,
-		"protector" : 0.5,
-		"strength" : 0.5
+		"protector" : 0.75,
+		"strength" : 0.75,
+		"weight" : 0.5
 	},
 	"Normal" : {
 		"speed" : 1.0,
 		"fear" : 1.0,
 		"anger" : 1.0,
 		"protector" : 1.0,
-		"strength" : 1.0
+		"strength" : 1.0,
+		"weight" : 1.0
 	},
 	"Fat" : {
-		"speed" : 0.5,
-		"fear" : 0.5,
-		"anger" : 2.0,
-		"protector" : 2.0,
-		"strength" : 1.0
+		"speed" : 0.75,
+		"fear" : 0.75,
+		"anger" : 1.5,
+		"protector" : 1.5,
+		"strength" : 1.5,
+		"weight" : 1.5
 	},
 	"Muscular" : {
-		"speed" :2.0,
-		"fear" : 0.5,
-		"anger" : 2.0,
-		"protector" : 2.0,
-		"strength" :2.0
+		"speed" :1.5,
+		"fear" : 0.75,
+		"anger" : 1.5,
+		"protector" : 1.5,
+		"strength" :2.0,
+		"weight" : 1.5
 	}
 }
 
 var status = {
 	"Poor" : {
-		"speed" : 2.0,
-		"fear" : 2.0,
-		"anger" : 0.5,
-		"protector" : 2.0,
+		"speed" : 1.5,
+		"fear" : 1.5,
+		"anger" : 0.75,
+		"protector" : 1.5,
 		"strength" : 1.0
 	}, 
 	"Average" : {
@@ -86,11 +90,11 @@ var status = {
 		"strength" : 1.0
 	},
 	"Rich" : {
-		"speed" : 0.5,
+		"speed" : 0.75,
 		"fear" : 1.0,
-		"anger" : 2.0,
-		"protector" : 0.5,
-		"strength" : 2.0
+		"anger" : 1.5,
+		"protector" : 0.75,
+		"strength" : 1.5
 	}
 	}
 
