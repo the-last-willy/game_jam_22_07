@@ -1,5 +1,6 @@
 extends Spatial
 
+class_name SpawnPerso
 
 var character:Character = Character.new()
 
@@ -9,6 +10,10 @@ var fear: float
 var anger: float
 var protector: float
 
+func _init() :
+	generate_random()
+	
+	
 func generate_random() :
 	character.init(randi() % 4, randi() % 4,randi() % 2, randi() % 2, randi() % 7)
 	

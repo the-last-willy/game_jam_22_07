@@ -12,21 +12,21 @@ var temper = {
 	"Noisy" : { 
 		"speed" : 0.5,
 		"fear" : 0.5,
-		"anger" : 2.0
+		"anger" : 2.0,
 		"strength" : 2.0,
 		"protector" : 2.0
 	},
 	"Shy" : {
 		"speed" : 0.5,
 		"fear" : 2.0,
-		"anger" : 0.5
+		"anger" : 0.5,
 		"strength" : 1.0,
 		"protector" : 0.5
 	},
 	"Paranoid" : {
 		"speed" : 0.5,
 		"fear" : 2.0,
-		"anger" : 2.0
+		"anger" : 2.0,
 		"strength" : 1.0,
 		"protector" : 2.0
 	},
