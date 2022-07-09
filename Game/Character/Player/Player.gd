@@ -54,14 +54,20 @@ func grab_passenger() -> void:
 		throw_button.position = pos2d
 		
 		if Input.is_action_just_pressed("grab_passenger"):
-			get_tree().call_group("ConfrontationManager", "confront", self, nearest_passenger)
+			get_tree().call_group("SequenceManager", "confront", self, nearest_passenger)
 			confrontation_transition()
 		elif Input.is_action_just_pressed("grab_luggage") and nearest_passenger.luggage != null:
+			get_tree().call_group("SequenceManager", "throw_luggage", self )
+			luggage_transition()
 			nearest_passenger.ejected_luggage()
 
 	
 
 func confrontation_transition():
+	throw_button.visible = false
+	confronting = true
+
+func luggage_transition():
 	throw_button.visible = false
 	confronting = true
 
