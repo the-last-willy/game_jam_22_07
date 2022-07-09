@@ -12,14 +12,15 @@ var protector: float
 var weight: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
 
-enum LuggagePlacement { left, right }
+const LuggagePlacement = preload("res://Game/Props/Luggage/LuggagePlacement.gd").LuggagePlacement
 
-export(LuggagePlacement) var luggage_placement = LuggagePlacement.left
+var luggage_placement = LuggagePlacement.left
 var luggage_scene = load("res://Game/Props/Luggage/Luggage.tscn")
 
 var luggage_placement_node : Spatial
 
 func _ready() :
+	luggage_placement = get_parent().luggage_placement
 	luggage_placement_node = get_parent().get_node("LuggagePlacement")
 	var passenger_instance = spawn_passenger()
 	if passenger_instance != null:
