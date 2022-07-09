@@ -6,7 +6,7 @@
 [node name="PassengerModelNormal" type="Spatial"]
 
 [node name="CharacterModel" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.585, 0 )
+transform = Transform( 1, -1.06581e-14, -4.02341e-21, 0, -4.37114e-08, 1, -1.06581e-14, -1, -4.37114e-08, 0, 0.585, 0 )
 material/0 = ExtResource( 2 )
 
 [node name="MeshInstance" parent="CharacterModel" index="0"]

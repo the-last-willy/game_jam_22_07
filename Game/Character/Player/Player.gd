@@ -8,17 +8,20 @@ const CONTROL_MODE_CONTROLLER : int = 1
 
 var control_mode := CONTROL_MODE_KEYBOARD
 
+var confronting := false
+
 var move_speed : float = 3.0
 
 var velocity : Vector3 = Vector3.ZERO
-
-var input_camera_space : bool = false
 
 var near_passengers := []
 
 onready var throw_button : Sprite = $ThrowButton
 
 func _physics_process(_delta : float) -> void:
+	if confronting:
+		return
+	
 	move()
 	
 	grab_passenger()
@@ -51,7 +54,12 @@ func grab_passenger() -> void:
 		throw_button.position = pos2d
 		
 		if Input.is_action_just_pressed("grab"):
-			nearest_passenger.queue_free()
+			get_tree().call_group("ConfrontationManager", "confront", self, nearest_passenger)
+			confrontation_transition()
+
+func confrontation_transition():
+	throw_button.visible = false
+	confronting = true
 
 func move() -> void:
 	var input_dir = Input.get_vector(
