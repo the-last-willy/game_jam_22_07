@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Game/Scenes/Level/AircraftCabin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Character/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/UI/PauseMenu/PauseMenuUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Character/Passenger/Models/PassengerModelSkinny.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Character/Passenger/Models/PassengerModelNormal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Character/Passenger/Passenger.tscn" type="PackedScene" id=6]
@@ -13,6 +14,7 @@
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.956443, 0.203733, -0.209069, 0, 0.716187, 0.697908, 0.29192, 0.667509, -0.684992, -4.15276, 13.5999, -12.5844 )
+current = true
 fov = 30.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
