@@ -12,11 +12,17 @@ func _process(delta):
 	update_global_anger(delta)
 	update_global_lift(delta)
 
+func clear_ui_instances():
+	game_ui_instance = null
+	game_end_instance = null
+
 func game_over():
 	game_end_instance.game_end(false)
+	clear_ui_instances()
 
 func win():
 	game_end_instance.game_end(true)
+	clear_ui_instances()
 
 func update_global_anger(delta):
 	if(game_ui_instance == null):
