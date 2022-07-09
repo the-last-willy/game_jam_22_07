@@ -102,3 +102,10 @@ margin_bottom = 4.0
 text = "Lift"
 align = 1
 valign = 1
+
+[node name="CurrentCharge" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 18.0
+margin_right = 89.0
+margin_bottom = 71.0
+text = "Charge"
