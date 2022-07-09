@@ -81,6 +81,8 @@ func ejected_passenger():
 		terrless += (randVal * fear) * 0.1
 
 func ejected_luggage():
+	luggage.queue_free()
+	luggage = null
 	var randVala = randi() % 100 * anger
 	var randValf = randi() % 100 * fear
 	if(randVala > 50 ) :
