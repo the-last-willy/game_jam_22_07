@@ -9,19 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "Character",
+"base": "KinematicBody",
+"class": "Player",
 "language": "GDScript",
-"path": "res://Game/Character/PassengerSpawner/Character.gd"
-}, {
-"base": "Spatial",
-"class": "SpawnPerso",
-"language": "GDScript",
-"path": "res://Game/Character/PassengerSpawner/SpawnPerso.gd"
+"path": "res://Game/Character/Player/Player.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
-"SpawnPerso": ""
+"Player": ""
 }
 
 [application]
@@ -29,6 +23,10 @@ _global_script_class_icons={
 config/name="Gj2207"
 run/main_scene="res://Game/Scenes/Main/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Game/GameManager.gd"
 
 [input]
 

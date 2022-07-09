@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Scenes/Level/AircraftCabin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Character/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Character/Passenger/Models/PassengerModelSkinny.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Character/Passenger/Models/PassengerModelNormal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Character/Passenger/Passenger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Character/Passenger/Models/PassengerModelFat.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Spatial"]
 
@@ -12,3 +16,25 @@ transform = Transform( -0.956443, 0.203733, -0.209069, 0, 0.716187, 0.697908, 0.
 fov = 30.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="PauseMenuUI" parent="." instance=ExtResource( 3 )]
+
+[node name="Passenger" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.440903, 0, -1.11538 )
+
+[node name="PassengerModelFat" parent="Passenger" instance=ExtResource( 7 )]
+
+[node name="Passenger2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446418, 0, -1.8655 )
+
+[node name="PassengerModelNormal" parent="Passenger2" instance=ExtResource( 5 )]
+
+[node name="Passenger3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35098, 0, -1.13744 )
+
+[node name="PassengerModelNormal" parent="Passenger3" instance=ExtResource( 5 )]
+
+[node name="Passenger4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3565, 0, -1.88757 )
+
+[node name="PassengerModelSkinny" parent="Passenger4" instance=ExtResource( 4 )]
