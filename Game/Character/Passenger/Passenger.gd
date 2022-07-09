@@ -1,6 +1,8 @@
 extends Spatial
 class_name Passenger
 
+signal ejected(passenger)
+
 var speed: float
 var strength: float
 var saved_strength: float
@@ -59,6 +61,8 @@ func get_weight():
 	return weight
 	
 func _ready():
+	GameManager.register_passenger(self)
+	
 	timer = Timer.new()
 	
 	add_child(timer)
@@ -74,6 +78,9 @@ func _process(delta):
 		update_angryness(delta)
 	if(randVal2 < 75) :
 		update_terrless(delta)
+
+func eject():
+	emit_signal("ejected", self)
 
 func update_angryness(delta):
 	var randVal = randf()
