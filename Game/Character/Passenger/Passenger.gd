@@ -9,12 +9,14 @@ var protector: float
 var weight: float
 var luggage: Luggage
 
+var angryness: float = 0.5
+var terrless: float = 0.5
+
 func set_speed(_speed):
 	speed = _speed
 
 func set_strength(_strength):
 	strength = _strength
-	$Label.text = str(strength)
 
 func set_fear(_fear):
 	fear = _fear
@@ -49,8 +51,46 @@ func get_protector():
 func get_weight():
 	return weight
 
-func _process(_delta):
+func _process(delta):
 	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
+	$Label.text = str(strength)
+	var randVal = randi() % 100 * anger
+	var randVal2 = randi() % 100 * fear
+	if(randVal < 75 ) :
+		update_angryness(delta)
+	if(randVal2 < 75) :
+		update_terrless(delta)
+
+func update_angryness(delta):
+	var randVal = randf()
+	if(angryness >0) :
+		angryness -= (randVal / anger) * delta * 0.01
+	
+func update_terrless(delta):
+	var randVal = randf()
+	terrless -= (randVal / fear) * delta * 0.01
+	
+func ejected_passenger():
+	var randVala = randi() % 100 * anger
+	var randValf = randi() % 100 * fear
+	if(randVala > 50 ) :
+		var randVal = randf()
+		angryness += (randVal * fear) * 0.1
+	if(randValf > 50 ) :
+		var randVal = randf()
+		terrless += (randVal * fear) * 0.1
+
+func ejected_luggage():
+	luggage.queue_free()
+	luggage = null
+	var randVala = randi() % 100 * anger
+	var randValf = randi() % 100 * fear
+	if(randVala > 50 ) :
+		var randVal = randf()
+		angryness += (randVal * fear) * 0.05
+	if(randValf > 50 ) :
+		var randVal = randf()
+		terrless += (randVal * fear) * 0.05
 
 func _on_Area_body_entered(body):
 	if body as Player:

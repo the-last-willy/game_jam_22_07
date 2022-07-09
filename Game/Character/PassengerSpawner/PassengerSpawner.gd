@@ -21,11 +21,11 @@ var luggage_placement_node : Spatial
 
 func _ready() :
 	luggage_placement_node = get_parent().get_node("LuggagePlacement")
-	var passenger = spawn_passenger()
-	if passenger != null:
-		spawn_luggage(passenger)
+	var passenger_instance = spawn_passenger()
+	if passenger_instance != null:
+		spawn_luggage(passenger_instance)
 
-func spawn_luggage(passenger : Passenger):
+func spawn_luggage(passenger_instance : Passenger):
 	var luggage = luggage_scene.instance()
 	match(luggage_placement):
 		LuggagePlacement.left:
@@ -33,11 +33,12 @@ func spawn_luggage(passenger : Passenger):
 		LuggagePlacement.right:
 			luggage.transform = luggage_placement_node.get_node("Right").transform
 	add_child(luggage)
+	passenger_instance.set_luggage(luggage)
 
 func spawn_passenger() -> Passenger:
-	var  is_spowned = randi() % 1000
+	var  is_spawned = randi() % 1000
 	
-	if is_spowned < 250:
+	if is_spawned < 250:
 		return null
 		
 	generate_random()
