@@ -1,28 +1,28 @@
 extends KinematicBody
 
-export var speed = 14
+var move_speed : float = 4.0
 
-var velocity = Vector3.ZERO
+var velocity : Vector3 = Vector3.ZERO
 
-export var fall_acceleration = 75
+var input_camera_space : bool = true
 
 func _physics_process(delta):
 	
-	var direction = Vector3.ZERO
-
-	if Input.is_action_pressed("move_right"):
-		direction = Input.get_vector("move_right")
-	if Input.is_action_pressed("move_left"):
-		direction = Input.get_vector("move_left")
-	if Input.is_action_pressed("move_back"):
-		direction = Input.get_vector("move_back")
-	if Input.is_action_pressed("move_forward"):
-		direction = Input.get_vector("move_forward")
-
-	 if direction != Vector3.ZERO:
-		$Pivot.look_at(translation + direction, Vector3.UP)
-		
-	velocity.x = direction.x * speed
-	velocity.z = direction.z * speed
-	velocity.y -= fall_acceleration * delta
-	velocity = move_and_slide(velocity, Vector3.UP)
+	var input_dir = Input.get_vector(
+		"move_left", "move_right", 
+		"move_backward", "move_forward"
+	)
+	
+	var move_dir := Vector3(input_dir.x, 0, input_dir.y)
+	
+	if input_camera_space:
+		var cam_forward : Vector3 = -get_viewport().get_camera().global_transform.basis.z
+		var cam_right : Vector3 = get_viewport().get_camera().global_transform.basis.x
+		move_dir = input_dir.x * cam_right + input_dir.y * cam_forward
+		move_dir = Vector3(move_dir.x, 0, move_dir.z)
+		if !move_dir.is_equal_approx(Vector3.ZERO):
+			move_dir = move_dir.normalized()
+	
+	if !move_dir.is_equal_approx(Vector3.ZERO):
+		velocity = move_and_slide(move_dir * move_speed)
+		look_at(global_transform.origin + move_dir, Vector3.UP)

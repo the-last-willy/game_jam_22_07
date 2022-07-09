@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.2
+mid_height = 0.75
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.075
+bottom_radius = 0.015
+height = 0.36
+
+[node name="CharacterModel" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.585, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0.346 )
+mesh = SubResource( 3 )
+material/0 = null
