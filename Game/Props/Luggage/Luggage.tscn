@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Props/Luggage/Luggage.gd" type="Script" id=1]
+[ext_resource path="res://Game/Props/Luggage/Model/LuggageModelHeavy.tscn" type="PackedScene" id=2]
+
+[node name="Luggage" type="Spatial"]
+script = ExtResource( 1 )
+model = ExtResource( 2 )
+
+[node name="Model" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00220865, -0.00843287, 0.0040431 )
