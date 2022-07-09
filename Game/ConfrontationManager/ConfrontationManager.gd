@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 
 onready var main_camera : Camera = $MainCamera
 onready var confrontation_camera : Camera = $ConfrotationCamera
@@ -11,6 +11,8 @@ onready var button_smasher : ButtonSmasher = $ButtonMasher
 var player : Player = null
 var opponent : Spatial = null
 
+onready var opponent_last_pos : Transform = opponent2_pos.global_transform
+
 var confronting : bool = false
 
 var base_strength : float = 30
@@ -21,8 +23,15 @@ var strength : float = base_strength
 var loss : float = base_loss
 var press_strength : float = base_press_strength
 
+var timer : Timer
+
 func _ready():
-	pass
+	timer = Timer.new()
+	timer.one_shot = true
+	
+	add_child(timer)
+	
+	timer.connect("timeout", self, "on_timeout")
 
 func _process(delta):
 	if !confronting:
@@ -34,21 +43,15 @@ func _process(delta):
 	button_smasher.set_value(strength)
 	
 	if strength <= 0.0 || strength >= 100.0:
-		confronting = false
-		player.confronting = false
-		
 		if strength <= 0.0:
 			player.queue_free()
 			get_tree().call_group("GameManager", "game_over")
+			player = null
 		else:
 			opponent.queue_free()
-			
-		player = null
-		opponent = null
+			opponent = null
 		
-		button_smasher.visible = false
-		main_camera.current = true
-		confrontation_camera.current = false
+		stop_confront()
 
 func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	player = p_player
@@ -64,6 +67,30 @@ func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	strength = base_strength
 	loss = base_loss * opponent.strength
 	
+	opponent_last_pos = opponent.global_transform
+	
 	player.global_transform = opponent1_pos.global_transform
 	opponent.global_transform = opponent2_pos.global_transform
 	
+	timer.start(10.0)
+	
+
+func stop_confront():
+	confronting = false
+	
+	if player != null:
+		player.confronting = false
+		player = null
+	
+	if opponent != null:
+		opponent.global_transform = opponent_last_pos
+		opponent = null
+	
+	button_smasher.visible = false
+	main_camera.current = true
+	confrontation_camera.current = false
+	
+	timer.stop()
+
+func on_timeout():
+	stop_confront()
