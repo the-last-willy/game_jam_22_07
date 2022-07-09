@@ -7,7 +7,7 @@ var game_ui_instantiate
 var anger
 var lift
 
-func _ready():
+func _on_ready():
 	game_ui_instantiate = get_parent().get_node("GameUI")
 
 func _process(delta):
@@ -39,11 +39,12 @@ func update_global_lift(delta):
 		game_over()
 
 func object_thrown(weight):
+	if(game_ui_instantiate == null):
+		return
 	anger = game_ui_instantiate.get_stress()
 	anger = anger + 0.7 * weight
 	lift = game_ui_instantiate.get_lift()
 	lift = lift + 0.7 * weight
 	game_ui_instantiate.update_lift(lift)
 	game_ui_instantiate.update_stress(anger)
-	
-	
+

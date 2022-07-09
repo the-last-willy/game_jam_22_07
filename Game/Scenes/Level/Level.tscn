@@ -44,3 +44,5 @@ visible = false
 [node name="GameManager" parent="." instance=ExtResource( 11 )]
 
 [node name="GameEndUI" parent="." instance=ExtResource( 12 )]
+
+[connection signal="ready" from="GameUI" to="GameManager" method="_on_ready"]
