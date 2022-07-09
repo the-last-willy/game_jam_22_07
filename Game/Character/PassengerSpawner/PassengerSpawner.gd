@@ -13,9 +13,9 @@ var weight: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
 
 func _ready() :
-	var  is_spowned = randi() % 1000
+	var  is_spawned = randi() % 1000
 	
-	if is_spowned < 250:
+	if is_spawned < 250:
 		return
 		
 	generate_random()
