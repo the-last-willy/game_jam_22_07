@@ -34,7 +34,7 @@ func update_global_anger(delta):
 	anger = game_ui_instance.get_stress()
 	anger = anger - 0.1 * delta
 	game_ui_instance.update_stress(anger)
-	if(anger >= 100):
+	if(anger >= 90):
 		return
 	
 func update_global_lift(delta):
@@ -72,3 +72,9 @@ func unregister_passenger(passenger: Node):
 	current_load -= passenger.get_weight()
 	passengers.erase(passenger)
 	emit_signal("current_load_updated", current_load)
+	
+#func anger_for_all_passengers():
+	#var passengers = level.get_tree().get_nodes_in_group("passengers")
+	#for passenger in passengers:
+	#	passenger.connect("ejected", self, "_on_Passenger_ejected_anger")
+
