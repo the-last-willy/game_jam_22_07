@@ -9,6 +9,7 @@
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.956443, 0.203733, -0.209069, 0, 0.716187, 0.697908, 0.29192, 0.667509, -0.684992, -4.15276, 13.5999, -12.5844 )
+current = true
 fov = 30.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
