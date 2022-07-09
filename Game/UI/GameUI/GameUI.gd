@@ -2,6 +2,8 @@ extends Control
 
 func _ready():
 	GameManager.game_ui_instance = self
+	
+	GameManager.connect("current_charge_updated", self, "_on_GameManager_current_charge_updated")
 
 func update_stress(value):
 	$StressBar.value = value
@@ -15,3 +17,5 @@ func get_stress():
 func get_lift():
 	return $PlaneLiftBar.value
 	
+func _on_GameManager_current_charge_updated(val: float):
+	$CurrentCharge.text = "Score: %f" % val
