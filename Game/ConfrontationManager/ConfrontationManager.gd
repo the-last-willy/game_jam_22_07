@@ -48,8 +48,14 @@ func _process(delta):
 			GameManager.game_over()
 			player = null
 		else:
+			var luggage_weight = 0
+			if(opponent.luggage != null):
+				luggage_weight = opponent.luggage.settings["weight"]
+				opponent.luggage.queue_free()
+				opponent.luggage = null
 			opponent.queue_free()
-			GameManager.object_thrown(opponent.weight)
+			GameManager.object_thrown(opponent.weight + luggage_weight)
+			#GameManager.anger_for_all_passengers()
 			opponent = null
 		
 		stop_confront()
