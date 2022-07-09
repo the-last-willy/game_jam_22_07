@@ -2,7 +2,7 @@ extends Panel
 
 var is_paused : bool = false
 
-var main_menu = preload("res://Game/Scenes/Main/Main.tscn")
+var main_menu = load("res://Game/Scenes/Main/Main.tscn")
 
 func resume():
 	is_paused = false
@@ -13,11 +13,11 @@ func pause():
 	is_paused = true
 	get_tree().paused = true
 	visible = true
+	$HBoxContainer/Resume.grab_focus()
 
 func exit_to_main_menu():
 	resume()
 	var _error_code = get_tree().change_scene_to(main_menu)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

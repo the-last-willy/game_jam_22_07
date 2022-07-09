@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/Scenes/Level/AircraftCabin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Character/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/UI/PauseMenu/PauseMenuUI.tscn" type="PackedScene" id=3]
 
 [node name="Level" type="Spatial"]
 
@@ -13,3 +14,5 @@ current = true
 fov = 30.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="PauseMenuUI" parent="." instance=ExtResource( 3 )]
