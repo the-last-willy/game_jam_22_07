@@ -77,15 +77,19 @@ __meta__ = {
 
 [node name="Seat" parent="AllSeats/Seats" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat2" parent="AllSeats/Seats" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat3" parent="AllSeats/Seats" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seat4" parent="AllSeats/Seats" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seats2" type="Spatial" parent="AllSeats"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, 1.5 )
@@ -95,15 +99,19 @@ __meta__ = {
 
 [node name="Seat" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat2" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat3" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seat4" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seats3" type="Spatial" parent="AllSeats"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, 1.5 )
@@ -113,15 +121,19 @@ __meta__ = {
 
 [node name="Seat" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat2" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat3" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seat4" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seats4" type="Spatial" parent="AllSeats"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0, 1.5 )
@@ -131,15 +143,19 @@ __meta__ = {
 
 [node name="Seat" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat2" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat3" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seat4" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seats5" type="Spatial" parent="AllSeats"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, 1.5 )
@@ -149,15 +165,19 @@ __meta__ = {
 
 [node name="Seat" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat2" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+luggage_placement = 1
 
 [node name="Seat3" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seat4" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+luggage_placement = 1
 
 [node name="Seats6" type="Spatial" parent="AllSeats"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -1.5 )

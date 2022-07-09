@@ -53,6 +53,7 @@ func _process(delta):
 				luggage_weight = opponent.luggage.settings["weight"]
 				opponent.luggage.queue_free()
 				opponent.luggage = null
+			opponent.eject()
 			opponent.queue_free()
 			GameManager.object_thrown(opponent.weight + luggage_weight)
 			#GameManager.anger_for_all_passengers()
