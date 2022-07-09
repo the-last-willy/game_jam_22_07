@@ -31,7 +31,7 @@ func _ready():
 	
 	add_child(timer)
 	
-	timer.connect("timeout", self, "on_timeout")
+	var _ret = timer.connect("timeout", self, "on_timeout")
 
 func _process(delta):
 	if !confronting:
