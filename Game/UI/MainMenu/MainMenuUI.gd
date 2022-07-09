@@ -11,4 +11,5 @@ func _on_Quit_pressed():
 
 
 func _on_Play_pressed():
-	get_tree().change_scene_to(level)
+	var _error_code = get_tree().change_scene_to(level)
+		
