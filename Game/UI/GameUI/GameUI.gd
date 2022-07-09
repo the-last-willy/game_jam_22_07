@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	GameManager.game_ui_instance = self
+
 func update_stress(value):
 	$StressBar.value = value
 	

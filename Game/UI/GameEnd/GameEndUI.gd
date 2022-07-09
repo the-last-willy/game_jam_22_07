@@ -4,6 +4,7 @@ var main_menu = load("res://Game/Scenes/Main/Main.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.game_end_instance = self
 	visible = false
 
 func game_end(win : bool):

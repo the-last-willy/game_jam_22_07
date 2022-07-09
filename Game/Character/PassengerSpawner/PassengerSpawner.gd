@@ -11,6 +11,7 @@ var anger: float
 var protector: float
 var weight: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
+var passenger_instance : Passenger
 
 func _ready() :
 	var  is_spowned = randi() % 1000
@@ -24,7 +25,7 @@ func _ready() :
 	
 	var passenger_type = load(path)
 	
-	var passenger_instance = passenger.instance()
+	passenger_instance = passenger.instance()
 	
 	passenger_instance.add_child(passenger_type.instance())
 	
@@ -38,10 +39,10 @@ func _ready() :
 	passenger_instance.set_anger(anger)
 	passenger_instance.set_protector(protector)
 	passenger_instance.set_weight(weight)
-	
-	
-	
-	
+	passenger_instance.set_luggage( get_parent().luggage )
+	print(get_parent().luggage)
+
+
 func generate_random() :
 	character.init(randi() % 4, randi() % 3,randi() % 3, randi() % 2, randi() % 7)
 	

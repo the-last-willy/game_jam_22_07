@@ -1,4 +1,5 @@
 extends Spatial
+class_name Passenger
 
 var speed: float
 var strength: float
@@ -6,6 +7,7 @@ var fear: float
 var anger: float
 var protector: float
 var weight: float
+var luggage: Luggage
 
 func set_speed(_speed):
 	speed = _speed
@@ -26,6 +28,9 @@ func set_protector(_protector):
 func set_weight(_weight):
 	weight = _weight
 
+func set_luggage(_luggage):
+	luggage = _luggage
+
 func get_speed():
 	return speed
 
@@ -44,7 +49,7 @@ func get_protector():
 func get_weight():
 	return weight
 
-func _process(delta):
+func _process(_delta):
 	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
 
 func _on_Area_body_entered(body):
