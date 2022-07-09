@@ -1,4 +1,5 @@
 extends Spatial
+class_name Passenger
 
 var speed: float
 var strength: float
@@ -6,6 +7,7 @@ var fear: float
 var anger: float
 var protector: float
 var weight: float
+var luggage: Luggage
 
 var angryness: float = 0.5
 var terrless: float = 0.5
@@ -27,6 +29,9 @@ func set_protector(_protector):
 
 func set_weight(_weight):
 	weight = _weight
+
+func set_luggage(_luggage):
+	luggage = _luggage
 
 func get_speed():
 	return speed

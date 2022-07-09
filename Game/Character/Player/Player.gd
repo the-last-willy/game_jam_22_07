@@ -53,9 +53,14 @@ func grab_passenger() -> void:
 		
 		throw_button.position = pos2d
 		
-		if Input.is_action_just_pressed("grab"):
+		if Input.is_action_just_pressed("grab_passenger"):
 			get_tree().call_group("ConfrontationManager", "confront", self, nearest_passenger)
 			confrontation_transition()
+		elif Input.is_action_just_pressed("grab_luggage"):
+			grab_luggage( nearest_passenger )
+
+func grab_luggage( passenger ) -> void:
+	pass
 
 func confrontation_transition():
 	throw_button.visible = false

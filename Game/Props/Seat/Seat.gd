@@ -5,9 +5,11 @@ enum LuggagePlacement { left, right }
 export(LuggagePlacement) var luggage_placement = LuggagePlacement.left
 
 var luggage_scene = load("res://Game/Props/Luggage/Luggage.tscn")
+onready var passenger_spawner = $PassengerSpawner
+var luggage : Luggage
 
 func _ready():
-	var luggage = luggage_scene.instance()
+	luggage = luggage_scene.instance()
 	match(luggage_placement):
 		LuggagePlacement.left:
 			luggage.transform = $LuggagePlacement/Left.transform

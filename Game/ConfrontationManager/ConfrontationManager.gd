@@ -38,18 +38,18 @@ func _process(delta):
 		return
 	
 	strength -= loss * delta
-	if Input.is_action_just_pressed("grab"):
+	if Input.is_action_just_pressed("grab_passenger"):
 		strength += press_strength
 	button_smasher.set_value(strength)
 	
 	if strength <= 0.0 || strength >= 100.0:
 		if strength <= 0.0:
 			player.queue_free()
-			get_tree().call_group("GameManager", "game_over")
+			GameManager.game_over()
 			player = null
 		else:
 			opponent.queue_free()
-			get_tree().call_group("GameManager", "object_thrown",opponent.weight)
+			GameManager.object_thrown(opponent.weight)
 			opponent = null
 		
 		stop_confront()
