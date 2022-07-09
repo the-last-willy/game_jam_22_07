@@ -16,11 +16,12 @@ var input_camera_space : bool = false
 
 var near_passengers := []
 
+onready var throw_button : Sprite = $ThrowButton
+
 func _physics_process(_delta : float) -> void:
 	move()
 	
-	if Input.is_action_just_pressed("grab"):
-		grab_passenger()
+	grab_passenger()
 
 func get_nearest_passenger() -> Spatial:
 	if near_passengers.empty():
@@ -40,8 +41,17 @@ func get_nearest_passenger() -> Spatial:
 
 func grab_passenger() -> void:
 	var nearest_passenger := get_nearest_passenger()
+	
+	throw_button.visible = nearest_passenger != null
+	
 	if nearest_passenger:
-		nearest_passenger.queue_free()
+		var passenger_pos : Vector3 = nearest_passenger.global_transform.origin
+		var pos2d : Vector2 = get_viewport().get_camera().unproject_position(passenger_pos + Vector3.UP * 1.8)
+		
+		throw_button.position = pos2d
+		
+		if Input.is_action_just_pressed("grab"):
+			nearest_passenger.queue_free()
 
 func move() -> void:
 	var input_dir = Input.get_vector(

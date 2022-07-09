@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/Character/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Game/Character/Player/Material/Player.material" type="Material" id=2]
 [ext_resource path="res://Game/Character/Model/CharacterModel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Character/Player/Material/ThrowLabel.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.202227
@@ -20,5 +21,10 @@ material/0 = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.578, 0 )
 shape = SubResource( 1 )
+
+[node name="ThrowButton" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
 
 [editable path="CharacterModel"]
