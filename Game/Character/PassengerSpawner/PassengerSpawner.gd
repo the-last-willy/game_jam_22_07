@@ -9,6 +9,7 @@ var strength: float
 var fear: float
 var anger: float
 var protector: float
+var weight: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
 
 func _ready() :
@@ -36,6 +37,7 @@ func _ready() :
 	passenger_instance.set_fear(fear)
 	passenger_instance.set_anger(anger)
 	passenger_instance.set_protector(protector)
+	passenger_instance.set_weight(weight)
 	
 	
 	
@@ -46,12 +48,13 @@ func generate_random() :
 	var temper = character.get_temper()
 	var caliber = character.get_caliber()
 	var status = character.get_status()
-	var special = character.get_special()
+	#var special = character.get_special()
 	
 	speed = temper["speed"] * caliber["speed"] * status["speed"]
 	strength = temper["strength"] * caliber["strength"] * status["strength"]
 	fear = temper["fear"] * caliber["fear"] * status["fear"]
 	anger = temper["anger"] * caliber["fear"] * status["fear"]
 	protector = temper["protector"] * caliber["protector"] * status["protector"]
+	weight = caliber["weight"]
 	
 	
