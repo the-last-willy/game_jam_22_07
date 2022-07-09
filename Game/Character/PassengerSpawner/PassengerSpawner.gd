@@ -11,13 +11,35 @@ var anger: float
 var protector: float
 var weight: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
-var passenger_instance : Passenger
+
+enum LuggagePlacement { left, right }
+
+export(LuggagePlacement) var luggage_placement = LuggagePlacement.left
+var luggage_scene = load("res://Game/Props/Luggage/Luggage.tscn")
+
+var luggage_placement_node : Spatial
 
 func _ready() :
+	luggage_placement_node = get_parent().get_node("LuggagePlacement")
+	var passenger_instance = spawn_passenger()
+	if passenger_instance != null:
+		spawn_luggage(passenger_instance)
+
+func spawn_luggage(passenger_instance : Passenger):
+	var luggage = luggage_scene.instance()
+	match(luggage_placement):
+		LuggagePlacement.left:
+			luggage.transform = luggage_placement_node.get_node("Left").transform
+		LuggagePlacement.right:
+			luggage.transform = luggage_placement_node.get_node("Right").transform
+	add_child(luggage)
+	passenger_instance.set_luggage(luggage)
+
+func spawn_passenger() -> Passenger:
 	var  is_spawned = randi() % 1000
 	
 	if is_spawned < 250:
-		return
+		return null
 		
 	generate_random()
 	
@@ -25,7 +47,7 @@ func _ready() :
 	
 	var passenger_type = load(path)
 	
-	passenger_instance = passenger.instance()
+	var passenger_instance = passenger.instance()
 	
 	passenger_instance.add_child(passenger_type.instance())
 	
@@ -39,9 +61,7 @@ func _ready() :
 	passenger_instance.set_anger(anger)
 	passenger_instance.set_protector(protector)
 	passenger_instance.set_weight(weight)
-	passenger_instance.set_luggage( get_parent().luggage )
-	print(get_parent().luggage)
-
+	return passenger_instance
 
 func generate_random() :
 	character.init(randi() % 4, randi() % 3,randi() % 3, randi() % 2, randi() % 7)
