@@ -9,13 +9,39 @@ var strength: float
 var fear: float
 var anger: float
 var protector: float
+var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
 
-func _init() :
+func _on_Seat_ready() :
+	
+	var  is_spowned = randi() % 1000
+		
+	if(is_spowned<499):
+		return
+		
 	generate_random()
+	
+	var path = "res://Game/Character/Passenger/Models/PassengerModel" + character.get_caliber_type()  + ".tscn"
+	
+	print(path)
+	var passenger_type = load(path)
+	
+	var passenger_instance = passenger.instance()
+	
+	passenger_instance.add_child(passenger_type.instance())
+	
+	get_parent().add_child(passenger_instance)
+	
+	passenger_instance.set_speed(speed)
+	passenger_instance.set_strength(strength)
+	passenger_instance.set_fear(fear)
+	passenger_instance.set_anger(anger)
+	passenger_instance.set_protector(protector)
+	
+	
 	
 	
 func generate_random() :
-	character.init(randi() % 4, randi() % 4,randi() % 2, randi() % 2, randi() % 7)
+	character.init(randi() % 4, randi() % 3,randi() % 3, randi() % 2, randi() % 7)
 	
 	var temper = character.get_temper()
 	var caliber = character.get_caliber()

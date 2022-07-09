@@ -1,12 +1,12 @@
 class_name Character
 
-enum Temper{Noisy,Shy, Paranoid, Normal}
+var Temper = ["Noisy" ,"Shy","Paranoid","Normal"]
 
-enum Caliber{Skinny, Normal, Fat, Muscular}
+var Caliber = ["Skinny" , "Normal", "Fat", "Muscular"]
 
-enum Status{Poor, Average, Rich}
+var Status = ["Poor" , "Average" , "Rich"]
 
-enum Special{Lovers, Copilote, Glinette, Steward, Star, SuperMan, Bishop}
+var Special = ["Lovers", "Copilote","Galinette", "Steward", "Star", "SuperMan","Bishop"]
 
 var temper = {
 	"Noisy" : { 
@@ -41,7 +41,7 @@ var temper = {
 
 var caliber = {
 	"Skinny" : {
-		"speed" :2.0,
+		"speed" : 2.0,
 		"fear" : 2.0,
 		"anger" : 1.0,
 		"protector" : 0.5,
@@ -72,21 +72,21 @@ var caliber = {
 
 var status = {
 	"Poor" : {
-		"speed" :2.0,
+		"speed" : 2.0,
 		"fear" : 2.0,
 		"anger" : 0.5,
 		"protector" : 2.0,
 		"strength" : 1.0
 	}, 
 	"Average" : {
-		"speed" :1.0,
+		"speed" : 1.0,
 		"fear" : 1.0,
 		"anger" : 1.0,
 		"protector" : 1.0,
 		"strength" : 1.0
 	},
 	"Rich" : {
-		"speed" :0.5,
+		"speed" : 0.5,
 		"fear" : 1.0,
 		"anger" : 2.0,
 		"protector" : 0.5,
@@ -122,6 +122,9 @@ func get_temper():
 	
 func get_caliber():
 	return caliber[Caliber[caliber_type]]
+
+func get_caliber_type():
+	return Caliber[caliber_type]
 	
 func get_status():
 	return status[Status[status_type]]
