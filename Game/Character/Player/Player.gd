@@ -59,8 +59,8 @@ func grab_passenger() -> void:
 		elif Input.is_action_just_pressed("grab_luggage"):
 			grab_luggage( nearest_passenger )
 
-func grab_luggage( passenger ) -> void:
-	pass
+func grab_luggage( passenger : Passenger ) -> void:
+	passenger.luggage.queue_free()
 
 func confrontation_transition():
 	throw_button.visible = false
