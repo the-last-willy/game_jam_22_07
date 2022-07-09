@@ -22,7 +22,6 @@ func _on_Seat_ready() :
 	
 	var path = "res://Game/Character/Passenger/Models/PassengerModel" + character.get_caliber_type()  + ".tscn"
 	
-	print(path)
 	var passenger_type = load(path)
 	
 	var passenger_instance = passenger.instance()
