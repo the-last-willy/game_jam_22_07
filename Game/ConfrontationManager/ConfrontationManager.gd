@@ -35,8 +35,7 @@ func _process(delta):
 		
 		if strength <= 0.0:
 			player.queue_free()
-			get_parent().get_node("GameManager").game_over()
-			# game_over !
+			get_tree().call_group("GameManager", "game_over")
 		else:
 			opponent.queue_free()
 			
