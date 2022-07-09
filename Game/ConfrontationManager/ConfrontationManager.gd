@@ -48,6 +48,7 @@ func _process(delta):
 			GameManager.game_over()
 			player = null
 		else:
+			opponent.eject()
 			opponent.queue_free()
 			GameManager.object_thrown(opponent.weight)
 			opponent = null

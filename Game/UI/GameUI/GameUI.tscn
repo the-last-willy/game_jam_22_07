@@ -103,7 +103,7 @@ text = "Lift"
 align = 1
 valign = 1
 
-[node name="CurrentCharge" type="Label" parent="."]
+[node name="CurrentLoad" type="Label" parent="."]
 margin_left = 18.0
 margin_top = 18.0
 margin_right = 89.0

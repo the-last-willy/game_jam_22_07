@@ -1,6 +1,6 @@
 extends Node
 
-signal current_charge_updated
+signal current_load_updated
 
 export(NodePath) var game_ui_path
 
@@ -9,11 +9,8 @@ var game_ui_instance
 var game_end_instance
 var anger
 var lift
-var current_charge: float = 0
-
-func _on_Level_ready():
-	connect_to_all_passengers()
-	update_current_charge()
+var current_load: float = 0
+var passengers: Array = []
 
 func _process(delta):
 	update_global_anger(delta)
@@ -59,16 +56,19 @@ func object_thrown(weight):
 	game_ui_instance.update_lift(lift)
 	game_ui_instance.update_stress(anger)
 
-func connect_to_all_passengers():
-	var passengers = level.get_tree().get_nodes_in_group("passengers")
-	for passenger in passengers:
-		passenger.connect("ejected", self, "_on_Passenger_ejected")
-
 func update_current_charge():
-	current_charge = 0
-	for passenger in level.get_tree().get_nodes_in_group("passengers"):
-		current_charge += passenger.get_weight()
-	emit_signal("current_charge_updated", current_charge)
+	current_load = 0
+	for passenger in passengers:
+		current_load += passenger.get_weight()
+	emit_signal("current_load_updated", current_load)
 
-func _on_Passenger_ejected(ejected_passenger: Node):
-	update_current_charge()
+func register_passenger(passenger: Node):
+	passenger.connect("ejected", self, "unregister_passenger")
+	current_load += passenger.get_weight()
+	passengers.push_back(passenger)
+	emit_signal("current_load_updated", current_load)
+
+func unregister_passenger(passenger: Node):
+	current_load -= passenger.get_weight()
+	passengers.erase(passenger)
+	emit_signal("current_load_updated", current_load)
