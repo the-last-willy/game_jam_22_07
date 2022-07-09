@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Props/Seat/Seat.tscn" type="PackedScene" id=1]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -15,321 +17,21 @@ shadow_contact = 0.01
 directional_shadow_mode = 0
 directional_shadow_normal_bias = 0.05
 
-[node name="Model" type="CSGCombiner" parent="."]
+[node name="GroundAndWallEast" type="CSGCombiner" parent="."]
 use_collision = true
 
-[node name="Ground" type="CSGBox" parent="Model"]
+[node name="Ground" type="CSGBox" parent="GroundAndWallEast"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
 width = 15.0
 height = 0.5
 depth = 4.25
 
-[node name="Seats" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats2" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats3" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats4" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats5" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats6" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, -1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats8" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats9" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats11" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, -1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seats12" type="CSGCombiner" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0, -1.5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Seat" type="CSGBox" parent="Model/Seats12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat2" type="CSGBox" parent="Model/Seats12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, -0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat3" type="CSGBox" parent="Model/Seats12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="Seat4" type="CSGBox" parent="Model/Seats12"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.25, 0.375 )
-width = 0.5
-height = 0.5
-depth = 0.5
-
-[node name="WallEast" type="CSGBox" parent="Model"]
+[node name="WallEast" type="CSGBox" parent="GroundAndWallEast"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.175 )
 width = 15.0
 depth = 0.1
 
-[node name="Door" type="CSGBox" parent="Model"]
+[node name="Door" type="CSGBox" parent="GroundAndWallEast"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.85017, 2.25 )
 operation = 2
 width = 1.39018
@@ -364,3 +66,185 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="WallSouth2/StaticBody"]
 shape = SubResource( 2 )
+
+[node name="AllSeats" type="Spatial" parent="."]
+
+[node name="Seats" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats2" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats3" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats4" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats5" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats6" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats6" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats6" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats6" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats6" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats7" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats7" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats7" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats7" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats7" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats8" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, -1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats8" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats8" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats8" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats8" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats9" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0, -1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats9" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats9" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats9" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats9" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )
+
+[node name="Seats10" type="Spatial" parent="AllSeats"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, 0, -1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Seat" parent="AllSeats/Seats10" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.375 )
+
+[node name="Seat2" parent="AllSeats/Seats10" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.375 )
+
+[node name="Seat3" parent="AllSeats/Seats10" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.375 )
+
+[node name="Seat4" parent="AllSeats/Seats10" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.375 )

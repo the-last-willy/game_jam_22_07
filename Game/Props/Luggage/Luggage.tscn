@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Game/Prop/Luggage/Luggage.gd" type="Script" id=1]
-[ext_resource path="res://Game/Prop/Luggage/Model/LuggageModelHeavy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Props/Luggage/Luggage.gd" type="Script" id=1]
+[ext_resource path="res://Game/Props/Luggage/Model/LuggageModelHeavy.tscn" type="PackedScene" id=2]
 
 [node name="Luggage" type="Spatial"]
 script = ExtResource( 1 )

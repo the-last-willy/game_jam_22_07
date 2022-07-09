@@ -11,25 +11,25 @@ var anger: float
 var protector: float
 var passenger = preload("res://Game/Character/Passenger/Passenger.tscn")
 
-func _on_Seat_ready() :
-	
+func _ready() :
 	var  is_spowned = randi() % 1000
-		
-	if(is_spowned<499):
+	
+	if is_spowned < 250:
 		return
 		
 	generate_random()
 	
 	var path = "res://Game/Character/Passenger/Models/PassengerModel" + character.get_caliber_type()  + ".tscn"
 	
-	print(path)
 	var passenger_type = load(path)
 	
 	var passenger_instance = passenger.instance()
 	
 	passenger_instance.add_child(passenger_type.instance())
 	
-	get_parent().add_child(passenger_instance)
+	get_parent().call_deferred("add_child", passenger_instance)
+	
+	passenger_instance.rotation_degrees = Vector3(0, 90, 0)
 	
 	passenger_instance.set_speed(speed)
 	passenger_instance.set_strength(strength)
