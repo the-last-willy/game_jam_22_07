@@ -45,4 +45,3 @@ func object_thrown(weight):
 	lift = lift + 0.9 * weight
 	game_ui_instance.update_lift(lift)
 	game_ui_instance.update_stress(anger)
-
