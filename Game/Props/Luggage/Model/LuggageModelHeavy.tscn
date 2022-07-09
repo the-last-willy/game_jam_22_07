@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Game/Props/Luggage/LuggageMaterialDefault.tres" type="Material" id=1]
+[ext_resource path="res://Game/Props/Luggage/Materials/LuggageMaterialDefault.tres" type="Material" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="CubeMesh" id=2]
 
 [node name="LuggageModelHeavy" type="Spatial"]
+transform = Transform( 1.93181, 0, 0, 0, 1.93181, 0, 0, 0, 1.93181, 0, 0, 0 )
 
 [node name="Body" type="MeshInstance" parent="."]
 transform = Transform( 0.148596, 0, 0, 0, 0.152531, 0, 0, 0, 0.0754235, 0, 0.158894, 0 )
