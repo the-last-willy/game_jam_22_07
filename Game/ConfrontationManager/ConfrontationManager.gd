@@ -13,9 +13,13 @@ var opponent : Spatial = null
 
 var confronting : bool = false
 
-var strength : float = 30
-var loss : float = 30
-var press : float = 10
+var base_strength : float = 30
+var base_loss : float = 30
+var base_press_strength : float = 10
+
+var strength : float = base_strength
+var loss : float = base_loss
+var press_strength : float = base_press_strength
 
 func _ready():
 	pass
@@ -26,7 +30,7 @@ func _process(delta):
 	
 	strength -= loss * delta
 	if Input.is_action_just_pressed("grab"):
-		strength += press
+		strength += press_strength
 	button_smasher.set_value(strength)
 	
 	if strength <= 0.0 || strength >= 100.0:
@@ -56,7 +60,9 @@ func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	confrontation_camera.current = true
 	
 	button_smasher.visible = true
-	strength = 30
+	
+	strength = base_strength
+	loss = base_loss * opponent.strength
 	
 	player.global_transform = opponent1_pos.global_transform
 	opponent.global_transform = opponent2_pos.global_transform
