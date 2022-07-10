@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Scenes/Level/AircraftCabin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Character/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/UI/PauseMenu/PauseMenuUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/UI/GameUI/GameUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/SequenceManager/SequenceManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/EventManager/EventManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/UI/GameEnd/GameEndUI.tscn" type="PackedScene" id=12]
 
 [node name="Level" type="Spatial"]
@@ -20,3 +21,5 @@
 [node name="GameUI" parent="." instance=ExtResource( 4 )]
 
 [node name="GameEndUI" parent="." instance=ExtResource( 12 )]
+
+[node name="EventManager" parent="." instance=ExtResource( 6 )]
