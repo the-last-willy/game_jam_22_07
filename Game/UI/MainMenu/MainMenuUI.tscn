@@ -25,9 +25,9 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 61.0
+margin_top = 31.0
 margin_right = 192.0
-margin_bottom = 75.0
+margin_bottom = 45.0
 size_flags_vertical = 6
 theme = SubResource( 1 )
 text = "Collateral luggage"
@@ -35,10 +35,16 @@ align = 1
 valign = 1
 
 [node name="Play" type="Button" parent="VBoxContainer"]
+margin_top = 116.0
+margin_right = 192.0
+margin_bottom = 136.0
+text = "Play"
+
+[node name="How to play" type="Button" parent="VBoxContainer"]
 margin_top = 176.0
 margin_right = 192.0
 margin_bottom = 196.0
-text = "Play"
+text = "How to play ?"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 margin_top = 236.0
@@ -57,5 +63,6 @@ autoplay = true
 
 [connection signal="focus_exited" from="VBoxContainer/Play" to="." method="play_navigate_sound"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="focus_exited" from="VBoxContainer/How to play" to="." method="play_navigate_sound"]
 [connection signal="focus_exited" from="VBoxContainer/Quit" to="." method="play_navigate_sound"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

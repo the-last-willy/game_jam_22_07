@@ -28,7 +28,7 @@ func initialize():
 		register_passenger(passenger)
 		if passenger.luggage != null:
 			register_luggage(passenger.luggage)
-		
+			
 	supported_load[1] = current_load[1]
 	
 	current_load[0] = current_load[1]
