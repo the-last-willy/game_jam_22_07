@@ -126,15 +126,16 @@ float perlin_noise(vec3 p) {
 }
 
 float fbm(vec2 uv) {
-    int octaves = 4;
+    int octaves = 6;
     float amplitude = 2.0;
     float frequency = 0.01;
 	float frequency2 = 0.1;
 	float value = 0.0;
 	
     for(int i = 0; i < octaves; i++) {
-        value += amplitude * perlin_noise(vec3(frequency * (uv + vec2(TIME * pow(2.0,float(octaves-i)))),perlin_noise_2(frequency2* (uv + vec2(TIME * pow(1.5,float(octaves-i)))))));
-        amplitude *= 0.5;
+//        value += amplitude * perlin_noise(vec3(frequency * (uv + vec2(TIME * pow(2.0,float(octaves-i)))),perlin_noise_2(frequency2* (uv + vec2(TIME * pow(1.5,float(octaves-i)))))));
+        value += amplitude * noise(frequency * (uv + vec2(TIME * pow(2.0,float(octaves-i)))));
+		amplitude *= 0.5;
         frequency *= 2.0;
     }
     return value;
