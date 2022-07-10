@@ -26,13 +26,14 @@ func _ready():
 
 
 func init_new_event() -> void:
-	var event_id = randi() % current_events.size()
-	event_to_be_played = current_events[event_id]
-	current_events.pop_at(event_id)
-	event_current_delta = rand_range(event_min_occurence, event_max_occurence)
+	if current_events.size() > 0:
+		var event_id = randi() % current_events.size()
+		event_to_be_played = current_events[event_id]
+		current_events.pop_at(event_id)
+		event_current_delta = rand_range(event_min_occurence, event_max_occurence)
 
 func trigger_current_event():
-	print(event_to_be_played.description)
+	$DialogUI.start_reading(event_to_be_played.description)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

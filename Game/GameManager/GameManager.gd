@@ -6,23 +6,26 @@ var level
 var game_ui_instance
 var game_end_instance
 var progression_manager_instance
+var dialog_ui : DialogUI
 var anger
 var passengers: Array = []
 
 func _process(delta):
 	update_global_anger(delta)
 
-func clear_ui_instances():
+func clear_instances():
 	game_ui_instance = null
 	game_end_instance = null
+	dialog_ui.stop_reading()
+	passengers.clear()
 
 func game_over():
 	game_end_instance.game_end(false)
-	clear_ui_instances()
+	clear_instances()
 
 func win():
 	game_end_instance.game_end(true)
-	clear_ui_instances()
+	clear_instances()
 
 func update_global_anger(delta):
 	if(game_ui_instance == null):
@@ -50,3 +53,11 @@ func unregister_passenger(passenger: Node):
 func update_passenger_angry():
 	for passenger in passengers:
 		passenger.ejected_passenger()
+		if(passenger != null):
+			passenger.ejected_passenger()
+			
+func update_passengers_with_event():
+	for passenger in passengers:
+		if(passenger != null):
+			pass
+

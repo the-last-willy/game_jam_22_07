@@ -19,6 +19,9 @@ script = ExtResource( 8 )
 
 [node name="SequenceManager" parent="." instance=ExtResource( 5 )]
 
+[node name="SequenceCamera" parent="SequenceManager" index="1"]
+transform = Transform( -0.611929, 0.29116, -0.73537, 0, 0.929774, 0.368131, 0.790913, 0.22527, -0.568955, 0.19242, 1.50674, 0.672475 )
+
 [node name="PauseMenuUI" parent="." instance=ExtResource( 3 )]
 
 [node name="GameUI" parent="." instance=ExtResource( 4 )]
@@ -34,3 +37,4 @@ script = ExtResource( 8 )
 [connection signal="inclination_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_inclination_updated"]
 [connection signal="progress_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_progress_updated"]
 [connection signal="supported_load_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_supported_load_updated"]
+[editable path="SequenceManager"]

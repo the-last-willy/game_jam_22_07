@@ -6,18 +6,18 @@ signal ejected(passenger)
 var speed: float
 var strength: float
 var saved_strength: float
-var fear: float
-var anger: float
-var protector: float
-var saved_protector: float
+var fear_multiplicator: float
+var anger_multiplicator: float
+var protectiveness: float
+var saved_protectiveness: float
 var weight: float
 var luggage_ejectable : bool = true
 var luggage: Luggage
 var timer:Timer
 var tried : bool = false
 
-var angryness: float = 0.5
-var terrless: float = 0.5
+var anger: float = 0.5
+var fear: float = 0.5
 
 func set_speed(_speed):
 	speed = _speed
@@ -26,15 +26,21 @@ func set_strength(_strength):
 	strength = _strength
 	saved_strength = strength
 
+func set_fear_multiplicator(_fear):
+	fear_multiplicator = _fear
+	
+func set_anger_multiplicator(_anger):
+	anger_multiplicator = _anger
+	
 func set_fear(_fear):
 	fear = _fear
 	
 func set_anger(_anger):
 	anger = _anger
 	
-func set_protector(_protector):
-	protector = _protector
-	saved_protector = protector
+func set_protectiveness(_protector):
+	protectiveness = _protector
+	saved_protectiveness = protectiveness
 
 func set_weight(_weight):
 	weight = _weight
@@ -47,15 +53,21 @@ func get_speed():
 
 func get_strength():
 	return strength
+
+func get_fear_multiplicator():
+	return fear_multiplicator
 	
+func get_anger_multiplicator():
+	return anger_multiplicator
+
 func get_fear():
 	return fear
 	
 func get_anger():
 	return anger
 	
-func get_protector():
-	return protector
+func get_protectiveness():
+	return protectiveness
 	
 func get_weight():
 	return weight
@@ -71,50 +83,54 @@ func _ready():
 
 func _process(delta):
 	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
-	$Label.text = str(angryness)
-	var randVal = randi() % 100 * anger
-	var randVal2 = randi() % 100 * fear
-	if(randVal < 75 ) :
-		update_angryness(delta)
-	if(randVal2 < 75) :
-		update_terrless(delta)
+	$Label.text = str(anger) + " " + str(strength)
+	var rand_val = randi() % 100 * anger_multiplicator
+	var rand_val2 = randi() % 100 * fear_multiplicator
+	if(rand_val < 75 ) :
+		update_anger(delta)
+	if(rand_val2 < 75) :
+		update_fear(delta)
 
 func eject():
 	emit_signal("ejected", self)
 
-func update_angryness(delta):
-	var randVal = randf()
-	if(terrless < 90):
-		if(angryness>90) :
+func update_anger(delta):
+	var rand_val = randf()
+	if(fear < 0.9):
+		if(anger>0.9) :
 			luggage_ejectable = false
 			strength = saved_strength * 2
 		else:
 			luggage_ejectable = true
 			strength = saved_strength
-	if(angryness >0) :
-		angryness -= (randVal / anger) * delta * 0.01
+	if(anger >1) :
+		anger = 1
+	if(anger >0) :
+		anger -= (rand_val / anger_multiplicator) * delta * 0.001
 	
-func update_terrless(delta):
-	var randVal = randf()
-	if(terrless>90) :
-		protector = 0
+func update_fear(delta):
+	var rand_val = randf()
+	if(fear>0.9) :
+		protectiveness = 0
 		strength = saved_strength / 2
 	else:
-		protector = saved_protector
-		strength = saved_strength
-	if(terrless >0) :
-		terrless -= (randVal / fear) * delta * 0.01
+		if(anger < 0.9):
+			protectiveness = saved_protectiveness
+			strength = saved_strength
+	if(fear >1) :
+		fear = 1
+	if(fear>0) :
+		fear -= (rand_val / fear_multiplicator) * delta * 0.001
 	
 func ejected_passenger():
-	print("ohhhh")
-	var randVala = randi() % 100 * anger
-	var randValf = randi() % 100 * fear
-	if(randVala > 50 ) :
-		var randVal = randf()
-		angryness += (randVal * anger) * 0.1
-	if(randValf > 50 ) :
-		var randVal = randf()
-		terrless += (randVal * fear) * 0.1
+	var rand_val_anger = randi() % 100 * anger_multiplicator
+	var rand_val_fear = randi() % 100 * fear_multiplicator
+	if(rand_val_anger > 70 ) :
+		var rand_val = min(randf() + 0.2 , 0.6)
+		anger += (rand_val * anger_multiplicator) * 0.05
+	elif(rand_val_fear > 70 ) :
+		var rand_val = min(randf() + 0.2 , 0.6)
+		fear += (rand_val * fear_multiplicator) * 0.05
 
 func ejected_luggage():
 	if(!tried):
@@ -123,21 +139,21 @@ func ejected_luggage():
 	else:
 		return
 	
-	var randProtect = randi() % 100 * protector
+	var randProtect = randi() % 100 * protectiveness
 	if(luggage_ejectable && randProtect < 50):
 		print("dropped")
 		GameManager.object_thrown(luggage.settings["weight"])
 		luggage.eject()
 		luggage.queue_free()
 		luggage = null
-	var randVala = randi() % 100 * anger
-	var randValf = randi() % 100 * fear
-	if(randVala > 50 ) :
-		var randVal = randf()
-		angryness += (randVal * fear) * 0.05
-	if(randValf > 50 ) :
-		var randVal = randf()
-		terrless += (randVal * fear) * 0.05
+	var rand_val_anger = randi() % 100 * anger_multiplicator
+	var rand_val_fear = randi() % 100 * fear_multiplicator
+	if(rand_val_anger > 70 ) :
+		var rand_val = min(randf() + 0.2 , 0.6)
+		anger += (rand_val * fear_multiplicator) * 0.03
+	elif(rand_val_fear > 70 ) :
+		var rand_val = min(randf() + 0.2 , 0.6)
+		fear += (rand_val * fear_multiplicator) * 0.03
 		 
 
 func on_timeout():
