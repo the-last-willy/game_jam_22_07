@@ -18,6 +18,9 @@ var near_passengers := []
 
 onready var throw_button : Sprite = $ThrowButton
 
+func _ready():
+	$CharacterModel.play_animation("Idle")
+
 func _physics_process(_delta : float) -> void:
 	if confronting:
 		return
@@ -93,6 +96,9 @@ func move() -> void:
 	if !move_dir.is_equal_approx(Vector3.ZERO):
 		velocity = move_and_slide(move_dir * move_speed)
 		look_at(global_transform.origin + move_dir, Vector3.UP)
+		$CharacterModel.play_animation("Walk")
+	else:
+		$CharacterModel.play_animation("Idle")
 
 func _input(event : InputEvent) -> void:
 	if ((event is InputEventJoypadButton) or 

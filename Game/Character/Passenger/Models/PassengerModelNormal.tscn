@@ -1,15 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Game/Character/Model/CharacterModel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game/Character/Passenger/Material/Passenger.material" type="Material" id=2]
 
 [node name="PassengerModelNormal" type="Spatial"]
 
 [node name="CharacterModel" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, -1.06581e-14, -4.02341e-21, 0, -4.37114e-08, 1, -1.06581e-14, -1, -4.37114e-08, 0, 0.585, 0 )
-material/0 = ExtResource( 2 )
-
-[node name="MeshInstance" parent="CharacterModel" index="0"]
-material/0 = ExtResource( 2 )
-
-[editable path="CharacterModel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
