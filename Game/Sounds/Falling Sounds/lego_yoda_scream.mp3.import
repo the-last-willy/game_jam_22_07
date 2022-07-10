@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lego_yoda_scream.mp3-0df7161b6240b80ecdf62816dd0e73a0.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Falling Sounds/lego_yoda_scream.mp3"
+dest_files=[ "res://.import/lego_yoda_scream.mp3-0df7161b6240b80ecdf62816dd0e73a0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
