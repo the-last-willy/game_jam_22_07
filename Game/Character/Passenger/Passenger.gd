@@ -143,6 +143,7 @@ func ejected_luggage():
 	if(luggage_ejectable && randProtect < 50):
 		print("dropped")
 		GameManager.object_thrown(luggage.settings["weight"])
+		luggage.eject()
 		luggage.queue_free()
 		luggage = null
 	var rand_val_anger = randi() % 100 * anger_multiplicator
