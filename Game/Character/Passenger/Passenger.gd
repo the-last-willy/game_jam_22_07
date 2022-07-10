@@ -137,19 +137,13 @@ func ejected_passenger():
 		fear += (rand_val * fear_multiplicator) * 0.05
 
 func ejected_luggage():
-	if(!tried):
-		timer.start(5.0)
-		tried = true
-	else:
-		return
-	
-	var randProtect = randi() % 100 * protectiveness
-	if(luggage_ejectable && randProtect < 50):
-		print("dropped")
-		GameManager.object_thrown(luggage.settings["weight"])
-		luggage.eject()
-		luggage.queue_free()
-		luggage = null
+#	if(!tried):
+#		timer.start(5.0)
+#		tried = true
+#	else:
+#		return false
+
+#	var randProtect = randi() % 100 * protectiveness
 	var rand_val_anger = randi() % 100 * anger_multiplicator
 	var rand_val_fear = randi() % 100 * fear_multiplicator
 	if(rand_val_anger > 70 ) :
@@ -158,6 +152,14 @@ func ejected_luggage():
 	elif(rand_val_fear > 70 ) :
 		var rand_val = min(randf() + 0.2 , 0.6)
 		fear += (rand_val * fear_multiplicator) * 0.03 
+#	if(luggage_ejectable && randProtect < 50):
+	GameManager.object_thrown(luggage.settings["weight"])
+	luggage.eject()
+	luggage.queue_free()
+	luggage = null
+#		return true
+#	else :
+#		return false
 
 func on_timeout():
 	tried = false
