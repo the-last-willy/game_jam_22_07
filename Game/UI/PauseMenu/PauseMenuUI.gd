@@ -21,6 +21,7 @@ func pause():
 
 func exit_to_main_menu():
 	resume()
+	GameManager.clear_instances()
 	var _error_code = get_tree().change_scene_to(main_menu)
 	
 func quit():
