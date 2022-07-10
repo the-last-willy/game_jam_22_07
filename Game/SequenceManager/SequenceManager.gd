@@ -31,11 +31,14 @@ var luggage_throwing : bool = false
 
 var timer : Timer
 
+var anim
+
 func _ready():
 	timer = Timer.new()
 	timer.one_shot = true
 	
 	add_child(timer)
+	anim = get_parent().get_node("AircraftCabin").get_node("Door").get_node("AnimationPlayer")
 	
 	var _ret = timer.connect("timeout", self, "on_timeout")
 
@@ -85,16 +88,20 @@ func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	opponent.global_transform = opponent2_pos.global_transform
 	
 	timer.start(10.0)
+	
+	anim.play("open")
 
 func throw_luggage(p_player : Spatial):
 	luggage_throwing = true
 	main_camera.current = false
 	sequence_camera.current = true
+	anim.play("open")
 	player = p_player
 	timer.start(1.0)
 	player.global_transform = opponent1_pos.global_transform
 
 func stop_throw_luggage():
+	anim.play("Close")
 	main_camera.current = true
 	sequence_camera.current = false
 	luggage_throwing = false
@@ -103,6 +110,7 @@ func stop_throw_luggage():
 		player = null
 
 func stop_confront():
+	anim.play("Close")
 	confronting = false
 	
 	if player != null:
