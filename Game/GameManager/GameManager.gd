@@ -64,7 +64,7 @@ func update_current_charge():
 	emit_signal("current_load_updated", current_load)
 
 func register_passenger(passenger: Node):
-	passenger.connect("ejected", self, "unregister_passenger")
+	var _err = passenger.connect("ejected", self, "unregister_passenger")
 	current_load += passenger.get_weight()
 	passengers.push_back(passenger)
 	emit_signal("current_load_updated", current_load)
