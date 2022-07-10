@@ -25,6 +25,7 @@ current = false
 
 [node name="SequenceCamera" parent="SequenceManager" index="1"]
 transform = Transform( -0.611929, 0.29116, -0.73537, 0, 0.929774, 0.368131, 0.790913, 0.22527, -0.568955, 0.19242, 1.50674, 0.672475 )
+far = 10000.0
 
 [node name="PauseMenuUI" parent="." instance=ExtResource( 3 )]
 
