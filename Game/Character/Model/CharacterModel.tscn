@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Game/Character/Model/CharacterModelNormal_export.glb" type="PackedScene" id=1]
 [ext_resource path="res://Game/Character/Model/Character.material" type="Material" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "Confrontation"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "Dodge"
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "EjectionBack"
@@ -80,14 +83,19 @@ xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 switch_mode = 2
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
-xfade_time = 0.2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=29]
 states/Confrontation/node = SubResource( 1 )
 states/Confrontation/position = Vector2( 420, -12 )
+states/Dodge/node = SubResource( 31 )
+states/Dodge/position = Vector2( 342, 88 )
 states/EjectionBack/node = SubResource( 2 )
 states/EjectionBack/position = Vector2( 192, -12 )
 states/EjectionFront/node = SubResource( 3 )
@@ -101,14 +109,14 @@ states/Idle/position = Vector2( 602, 151 )
 states/LuggageThrow/node = SubResource( 7 )
 states/LuggageThrow/position = Vector2( 520, 297 )
 states/Push/node = SubResource( 8 )
-states/Push/position = Vector2( 380, 94 )
+states/Push/position = Vector2( 648, 9 )
 states/Sitting/node = SubResource( 9 )
 states/Sitting/position = Vector2( 292, 208 )
 states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 807, 94 )
-transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 12 ), "Sitting", "Idle", SubResource( 15 ), "Idle", "Sitting", SubResource( 16 ), "Idle", "Grab", SubResource( 17 ), "Grab", "Idle", SubResource( 18 ), "Idle", "LuggageThrow", SubResource( 19 ), "LuggageThrow", "Idle", SubResource( 20 ), "Idle", "Confrontation", SubResource( 21 ), "Confrontation", "EjectionBack", SubResource( 22 ), "EjectionBack", "Fall", SubResource( 23 ), "Confrontation", "EjectionFront", SubResource( 24 ), "EjectionFront", "Fall", SubResource( 25 ), "Confrontation", "Push", SubResource( 26 ), "Push", "Idle", SubResource( 27 ), "Push", "Sitting", SubResource( 28 ) ]
+transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 12 ), "Sitting", "Idle", SubResource( 15 ), "Idle", "Sitting", SubResource( 16 ), "Idle", "Grab", SubResource( 17 ), "Grab", "Idle", SubResource( 18 ), "Idle", "LuggageThrow", SubResource( 19 ), "LuggageThrow", "Idle", SubResource( 20 ), "Idle", "Confrontation", SubResource( 21 ), "Confrontation", "EjectionBack", SubResource( 22 ), "EjectionBack", "Fall", SubResource( 23 ), "Confrontation", "EjectionFront", SubResource( 24 ), "EjectionFront", "Fall", SubResource( 25 ), "Confrontation", "Push", SubResource( 26 ), "Push", "Idle", SubResource( 27 ), "Confrontation", "Dodge", SubResource( 32 ), "Dodge", "Sitting", SubResource( 33 ) ]
 start_node = "Sitting"
-graph_offset = Vector2( -169, -82 )
+graph_offset = Vector2( -146, -32 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
