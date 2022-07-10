@@ -27,10 +27,6 @@ func stop_reading():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if currently_reading:
-		var text_defilment_multiplier : float = 1
-#		if Input.is_action_pressed("ui_accept"):
-#			text_defilment_multiplier = 3
-		
 		if current_char_display_timer <= 0:
 			$Label.text += text.substr(current_char_id, 1)
 			current_char_id += 1
@@ -41,4 +37,4 @@ func _process(delta):
 			else:
 				stop_reading()
 		else:
-			current_char_display_timer	-= delta * text_character_speed * text_defilment_multiplier
+			current_char_display_timer	-= delta * text_character_speed
