@@ -58,9 +58,9 @@ func spawn_passenger() -> Passenger:
 	
 	passenger_instance.set_speed(speed)
 	passenger_instance.set_strength(strength)
-	passenger_instance.set_fear(fear)
-	passenger_instance.set_anger(anger)
-	passenger_instance.set_protector(protector)
+	passenger_instance.set_fear_multiplicator(fear)
+	passenger_instance.set_anger_multiplicator(anger)
+	passenger_instance.set_protectiveness(protector)
 	passenger_instance.set_weight(weight)
 	return passenger_instance
 

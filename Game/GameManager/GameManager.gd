@@ -75,7 +75,8 @@ func unregister_passenger(passenger: Node):
 	
 func update_passenger_angry():
 	for passenger in passengers:
-		passenger.ejected_passenger()
+		if(passenger != null):
+			passenger.ejected_passenger()
 #func anger_for_all_passengers():
 	#var passengers = level.get_tree().get_nodes_in_group("passengers")
 	#for passenger in passengers:
