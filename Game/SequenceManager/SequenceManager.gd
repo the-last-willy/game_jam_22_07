@@ -2,6 +2,8 @@ extends Spatial
 
 onready var main_camera : Camera = $MainCamera
 onready var sequence_camera : Camera = $SequenceCamera
+onready var main_cam_y_pos : float = main_camera.translation.y
+onready var sequence_cam_y_pos : float = sequence_camera.translation.y
 
 # Confronting stuff
 onready var opponent1_pos : Spatial = $Oppenent1Pos
@@ -31,6 +33,14 @@ var luggage_throwing : bool = false
 
 var timer : Timer
 
+var cur_time = 0
+func camera_tremble( camera : Camera ):
+	camera.translation.y += sin( cur_time * 10  ) * 0.001
+	camera.translation.y += sin( cur_time * -20  ) * 0.002
+	camera.translation.x += cos( cur_time * 10  ) * 0.001
+	camera.translation.x += cos( cur_time * -70  ) * 0.002
+	camera.translation.z += cos( cur_time * -30  ) * 0.001
+
 func _ready():
 	timer = Timer.new()
 	timer.one_shot = true
@@ -40,6 +50,11 @@ func _ready():
 	var _ret = timer.connect("timeout", self, "on_timeout")
 
 func _process(delta):
+	cur_time += delta
+	if confronting or luggage_throwing:
+		camera_tremble( sequence_camera )
+	else:
+		camera_tremble( main_camera )
 	if confronting:
 		strength -= loss * delta
 		if Input.is_action_just_pressed("grab_passenger"):
@@ -83,6 +98,7 @@ func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	
 	player.global_transform = opponent1_pos.global_transform
 	opponent.global_transform = opponent2_pos.global_transform
+	main_camera.translation.y = main_cam_y_pos
 	
 	timer.start(10.0)
 
@@ -93,6 +109,7 @@ func throw_luggage(p_player : Spatial):
 	player = p_player
 	timer.start(1.0)
 	player.global_transform = opponent1_pos.global_transform
+	main_camera.translation.y = main_cam_y_pos
 
 func stop_throw_luggage():
 	main_camera.current = true
@@ -101,6 +118,7 @@ func stop_throw_luggage():
 	if player != null:
 		player.confronting = false
 		player = null
+	sequence_camera.translation.y = sequence_cam_y_pos
 
 func stop_confront():
 	confronting = false
@@ -116,6 +134,7 @@ func stop_confront():
 	button_smasher.visible = false
 	main_camera.current = true
 	sequence_camera.current = false
+	sequence_camera.translation.y = sequence_cam_y_pos
 	
 	timer.stop()
 
