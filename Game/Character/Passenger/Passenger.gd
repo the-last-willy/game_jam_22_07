@@ -153,8 +153,7 @@ func ejected_luggage():
 		anger += (rand_val * fear_multiplicator) * 0.03
 	elif(rand_val_fear > 70 ) :
 		var rand_val = min(randf() + 0.2 , 0.6)
-		fear += (rand_val * fear_multiplicator) * 0.03
-		 
+		fear += (rand_val * fear_multiplicator) * 0.03 
 
 func on_timeout():
 	tried = false
