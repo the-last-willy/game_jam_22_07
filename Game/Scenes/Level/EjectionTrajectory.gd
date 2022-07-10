@@ -18,7 +18,7 @@ func _progress(_delta):
 
 func eject(entity: Node, is_passenger : bool):
 	var ejection = EjectedObjectScene.instance()
-	ejection.translation = origin() + 2 * (Vector3(randf(), randf(), randf()) * 2 - Vector3(1,1,1))
+	ejection.translation = origin() + 3 * (Vector3(randf(), randf(), randf()) * 2 - Vector3(1,1,1))
 	ejection.velocity = direction() * ejection_speed
 	if entity.get_parent():
 		entity.get_parent().remove_child(entity)
