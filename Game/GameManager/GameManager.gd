@@ -7,6 +7,7 @@ export(NodePath) var game_ui_path
 var level
 var game_ui_instance
 var game_end_instance
+var dialog_ui : DialogUI
 var anger
 var lift
 var current_load: float = 0
@@ -15,11 +16,12 @@ var passengers: Array = []
 func _process(delta):
 	update_global_anger(delta)
 	update_global_lift(delta)
-	passengers.clear()
 
 func clear_ui_instances():
 	game_ui_instance = null
 	game_end_instance = null
+	dialog_ui.stop_reading()
+	passengers.clear()
 
 func game_over():
 	game_end_instance.game_end(false)
@@ -82,4 +84,9 @@ func update_passenger_angry():
 	#var passengers = level.get_tree().get_nodes_in_group("passengers")
 	#for passenger in passengers:
 	#	passenger.connect("ejected", self, "_on_Passenger_ejected_anger")
+
+func update_passengers_with_event():
+	for passenger in passengers:
+		if(passenger != null):
+			pass
 

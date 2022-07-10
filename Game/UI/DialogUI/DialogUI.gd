@@ -1,4 +1,5 @@
 extends Panel
+class_name DialogUI
 
 export var text : String = ""
 export var text_character_speed : float = 5
@@ -9,6 +10,9 @@ var currently_reading : bool = false
 var wait_time_after_reading : float = 3
 var wait_delta = 0
 # Called when the node enters the scene tree for the first time.
+
+func _ready():
+	GameManager.dialog_ui = self
 
 func start_reading(_text : String = ""):
 	if text != "":
