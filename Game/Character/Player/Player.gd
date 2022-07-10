@@ -18,6 +18,10 @@ var near_passengers := []
 
 onready var throw_button : Sprite = $ThrowButton
 
+var walk_start_delay = 0.15
+var walk_spacing = 0.47
+var walk_current_delta = walk_start_delay
+
 func _ready():
 	$CharacterModel.play_animation("Idle")
 
@@ -25,7 +29,7 @@ func _physics_process(_delta : float) -> void:
 	if confronting:
 		return
 	
-	move()
+	move(_delta)
 	
 	grab_passenger()
 
@@ -74,7 +78,7 @@ func luggage_transition():
 	throw_button.visible = false
 	confronting = true
 
-func move() -> void:
+func move(delta) -> void:
 	var input_dir = Input.get_vector(
 		"move_left", "move_right", 
 		"move_backward", "move_forward",
@@ -97,7 +101,13 @@ func move() -> void:
 		velocity = move_and_slide(move_dir * move_speed)
 		look_at(global_transform.origin + move_dir, Vector3.UP)
 		$CharacterModel.play_animation("Walk")
+		if walk_current_delta <= 0:
+			$WalkSound.play()
+			walk_current_delta = walk_spacing
+		else:
+			walk_current_delta -= delta
 	else:
+		walk_current_delta = walk_start_delay
 		$CharacterModel.play_animation("Idle")
 
 func _input(event : InputEvent) -> void:
