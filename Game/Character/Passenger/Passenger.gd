@@ -154,7 +154,7 @@ func ejected_luggage():
 		fear += (rand_val * fear_multiplicator) * 0.03 
 #	if(luggage_ejectable && randProtect < 50):
 	GameManager.object_thrown(luggage.settings["weight"])
-	GameManager.level.get_node("AircraftCabin/EjectionTrajectory").eject(luggage)
+	GameManager.level.get_node("AircraftCabin/EjectionTrajectory").eject(luggage, false)
 	luggage.eject()
 	luggage = null
 	return true
