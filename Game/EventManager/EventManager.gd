@@ -34,6 +34,7 @@ func init_new_event() -> void:
 
 func trigger_current_event():
 	$DialogUI.start_reading(event_to_be_played.description)
+	GameManager.update_passengers_with_event(event_to_be_played.fear, event_to_be_played.anger, event_to_be_played.strength, event_to_be_played.protectiveness, event_to_be_played.fear_multiplicator, event_to_be_played.anger_multiplicator)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

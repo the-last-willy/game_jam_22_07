@@ -85,8 +85,13 @@ func update_passenger_angry():
 	#for passenger in passengers:
 	#	passenger.connect("ejected", self, "_on_Passenger_ejected_anger")
 
-func update_passengers_with_event():
+func update_passengers_with_event(fear, anger, strength, protectiveness, fear_multiplicator, anger_multiplicator):
 	for passenger in passengers:
 		if(passenger != null):
-			pass
+			passenger.set_fear(fear)
+			passenger.set_anger(anger)
+			passenger.set_strength(strength)
+			passenger.set_protectiveness(protectiveness)
+			passenger.set_fear_multiplicator(fear_multiplicator)
+			passenger.set_anger_multiplicator(anger_multiplicator)
 
