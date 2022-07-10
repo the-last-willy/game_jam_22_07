@@ -151,3 +151,11 @@ func on_timeout():
 		stop_confront()
 	if luggage_throwing:
 		stop_throw_luggage()
+
+func _on_ProgressionManager_inclination_updated(val):
+	var current_camera
+	if confronting or luggage_throwing:
+		current_camera = sequence_camera
+	else:
+		current_camera = main_camera
+	current_camera.rotation.z = deg2rad(min(5, val) * 5)

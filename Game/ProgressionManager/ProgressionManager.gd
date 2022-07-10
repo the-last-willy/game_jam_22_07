@@ -36,7 +36,8 @@ func initialize():
 
 func _process(_delta):
 	progress = 1 - $GameDuration.time_left / 600.0 + .90
-	inclination[1] = max(0, inclination[0] + (current_load[0] - supported_load[0]) / 500)
+	var target_inclination = current_load[0] - supported_load[0]
+	inclination[1] = max(0, inclination[0] + (target_inclination - inclination[0]) / 300)
 	height[1] -= inclination[0] / 5000
 	
 	if progress >= 1:
