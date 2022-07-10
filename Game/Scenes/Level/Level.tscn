@@ -34,6 +34,7 @@ transform = Transform( -0.611929, 0.29116, -0.73537, 0, 0.929774, 0.368131, 0.79
 
 [connection signal="current_load_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_current_load_updated"]
 [connection signal="height_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_height_updated"]
+[connection signal="inclination_updated" from="ProgressionManager" to="SequenceManager" method="_on_ProgressionManager_inclination_updated"]
 [connection signal="inclination_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_inclination_updated"]
 [connection signal="progress_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_progress_updated"]
 [connection signal="supported_load_updated" from="ProgressionManager" to="GameUI" method="_on_ProgressionManager_supported_load_updated"]
