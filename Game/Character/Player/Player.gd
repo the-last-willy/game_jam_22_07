@@ -58,8 +58,8 @@ func grab_passenger() -> void:
 			confrontation_transition()
 		elif Input.is_action_just_pressed("grab_luggage") and nearest_passenger.luggage != null:
 			get_tree().call_group("SequenceManager", "throw_luggage", self )
-			luggage_transition()
-			nearest_passenger.ejected_luggage()
+			if nearest_passenger.ejected_luggage(): 
+				luggage_transition()
 
 	
 

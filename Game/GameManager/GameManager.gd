@@ -33,7 +33,8 @@ func update_global_anger(delta):
 	anger = game_ui_instance.get_stress()
 	anger = anger - 0.1 * delta
 	game_ui_instance.update_stress(anger)
-	if(anger >= 90):
+	if(anger >= 100):
+		game_over()
 		return
 
 func object_thrown(weight):
@@ -62,11 +63,11 @@ func update_passengers_with_event(event : Dictionary):
 			passenger.add_fear(event.fear)
 			passenger.add_anger(event.anger)
 			if event.has("strength"):
-				passenger.set_strength(event.strength)
+				passenger.set_strength(passenger.get_strength() * event.strength)
 			if event.has("protectiveness"):
-				passenger.set_protectiveness(event.protectiveness)
+				passenger.set_protectiveness(passenger.get_protectiveness() * event.protectiveness)
 			if event.has("fear_multiplicator"):
-				passenger.set_fear_multiplicator(event.fear_multiplicator)
+				passenger.set_fear_multiplicator(passenger.get_fear_multiplicator() * event.fear_multiplicator)
 			if event.has("anger_multiplicator"):
-				passenger.set_anger_multiplicator(event.anger_multiplicator)
+				passenger.set_anger_multiplicator(passenger.get_anger_multiplicator() * event.anger_multiplicator)
 

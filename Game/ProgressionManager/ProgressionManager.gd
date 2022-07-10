@@ -38,7 +38,7 @@ func _process(_delta):
 	progress = 1 - $GameDuration.time_left / 600.0 + .90
 	var target_inclination = current_load[0] - supported_load[0]
 	inclination[1] = max(0, inclination[0] + (target_inclination - inclination[0]) / 300)
-	height[1] -= inclination[0] / 5000
+	height[1] -= inclination[0] / 25000
 	
 	if progress >= 1:
 		emit_signal("plane_arrived")
@@ -79,3 +79,6 @@ func register_passenger(passenger: Node):
 func unregister_passenger(passenger: Node):
 	current_load[1] -= passenger.get_weight()
 	registered_passengers.erase(passenger)
+	
+func update_load(_load : float):
+	supported_load[1] += _load;
