@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wind_outside.mp3-ee84b2d29306298b3458afa965411e56.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/wind_outside.mp3"
+dest_files=[ "res://.import/wind_outside.mp3-ee84b2d29306298b3458afa965411e56.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

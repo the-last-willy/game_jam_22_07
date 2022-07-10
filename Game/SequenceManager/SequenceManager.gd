@@ -108,12 +108,14 @@ func confront(p_player : Spatial, p_opponent : Spatial) -> void:
 	timer.start(10.0)
 	
 	anim.play("open")
+	$OutsideSound.play()
 
 func throw_luggage(p_player : Spatial):
 	luggage_throwing = true
 	main_camera.current = false
 	sequence_camera.current = true
 	anim.play("open")
+	$OutsideSound.play()
 	player = p_player
 	timer.start(1.0)
 	player.global_transform = opponent1_pos.global_transform
@@ -121,6 +123,7 @@ func throw_luggage(p_player : Spatial):
 
 func stop_throw_luggage():
 	anim.play("Close")
+	$OutsideSound.stop()
 	main_camera.current = true
 	sequence_camera.current = false
 	luggage_throwing = false
@@ -131,6 +134,7 @@ func stop_throw_luggage():
 
 func stop_confront():
 	anim.play("Close")
+	$OutsideSound.stop()
 	confronting = false
 	
 	if player != null:
