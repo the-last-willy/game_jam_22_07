@@ -48,9 +48,11 @@ text = "Quit"
 
 [node name="UI_Navigate" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -6.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -6.0
 autoplay = true
 
 [connection signal="focus_exited" from="VBoxContainer/Play" to="." method="play_navigate_sound"]
