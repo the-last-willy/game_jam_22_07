@@ -75,10 +75,10 @@ func _process(delta):
 				if(opponent.luggage != null):
 					luggage_weight = opponent.luggage.settings["weight"]
 					opponent.luggage.eject()
-					get_parent().get_node("AircraftCabin/EjectionTrajectory").eject(opponent.luggage)
+					get_parent().get_node("AircraftCabin/EjectionTrajectory").eject(opponent.luggage, false)
 					opponent.luggage = null
 				opponent.eject()
-				get_parent().get_node("AircraftCabin/EjectionTrajectory").eject(opponent)
+				get_parent().get_node("AircraftCabin/EjectionTrajectory").eject(opponent, true)
 				GameManager.object_thrown(opponent.weight + luggage_weight)
 				GameManager.update_passenger_angry()
 				opponent = null

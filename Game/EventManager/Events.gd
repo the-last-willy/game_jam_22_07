@@ -34,7 +34,7 @@ var events = [
 	{
 		"description" : "Le pilote a esquivé un pigeon, réalisant une manoeuvre coûteuse en kérosène",
 		"lift" : -5,
-		"anger" : 0.2,
+		"anger" : 0.1,
 		"fear" : 0.1,
 		"anger_multiplicator" : 1.5,
 	},
@@ -65,7 +65,16 @@ var events = [
 		"fear_multiplicator" : 0.1,
 		"anger_multiplicator" : 1,
 	},
-	
+	{
+		"description" : "De la glace s'est formée sur les ailes, réduisant la capacité de l'avion à planer",
+		"lift" : -5,
+		"anger" : 0.1,
+		"fear" : 0.3,
+		"strength" : 1,
+		"proctectiveness" : 1,
+		"fear_multiplicator" : 1.2,
+		"anger_multiplicator" : 1,
+	},
 
 	
 ]

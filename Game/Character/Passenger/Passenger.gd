@@ -157,6 +157,7 @@ func ejected_luggage():
 	luggage.eject()
 	luggage.queue_free()
 	luggage = null
+	return true
 #		return true
 #	else :
 #		return false
