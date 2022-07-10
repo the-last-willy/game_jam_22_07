@@ -15,6 +15,7 @@ var passengers: Array = []
 func _process(delta):
 	update_global_anger(delta)
 	update_global_lift(delta)
+	passengers.clear()
 
 func clear_ui_instances():
 	game_ui_instance = null
