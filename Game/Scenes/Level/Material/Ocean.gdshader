@@ -47,6 +47,7 @@ vec2 random_perlin(vec2 uv){
 }
 vec3 grad(vec3 p) {
 	vec3 v = vec3(random_perlin(p.xy)*random_perlin(p.yz)*random_perlin(p.zx),noise(p.xy));
+	
     return normalize(v.xyz*2.0 - vec3(1.0)); /* remap sampled value to [-1; 1] and normalize */
 }
 
