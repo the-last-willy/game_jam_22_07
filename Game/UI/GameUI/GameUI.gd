@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	GameManager.game_ui_instance = self
 	
-	GameManager.connect("current_load_updated", self, "_on_GameManager_current_load_updated")
+	var _err = GameManager.connect("current_load_updated", self, "_on_GameManager_current_load_updated")
 
 func update_stress(value):
 	$StressBar.value = value
