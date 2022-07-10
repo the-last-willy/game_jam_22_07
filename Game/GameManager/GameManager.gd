@@ -56,13 +56,17 @@ func update_passenger_angry():
 		if(passenger != null):
 			passenger.ejected_passenger()
 
-func update_passengers_with_event(fear, anger, strength, protectiveness, fear_multiplicator, anger_multiplicator):
+func update_passengers_with_event(event : Dictionary):
 	for passenger in passengers:
 		if(passenger != null):
-			passenger.set_fear(fear)
-			passenger.set_anger(anger)
-			passenger.set_strength(strength)
-			passenger.set_protectiveness(protectiveness)
-			passenger.set_fear_multiplicator(fear_multiplicator)
-			passenger.set_anger_multiplicator(anger_multiplicator)
+			passenger.add_fear(event.fear)
+			passenger.add_anger(event.anger)
+			if event.has("strength"):
+				passenger.set_strength(event.strength)
+			if event.has("protectiveness"):
+				passenger.set_protectiveness(event.protectiveness)
+			if event.has("fear_multiplicator"):
+				passenger.set_fear_multiplicator(event.fear_multiplicator)
+			if event.has("anger_multiplicator"):
+				passenger.set_anger_multiplicator(event.anger_multiplicator)
 

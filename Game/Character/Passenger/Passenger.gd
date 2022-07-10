@@ -19,6 +19,12 @@ var tried : bool = false
 var anger: float = 0.5
 var fear: float = 0.5
 
+func add_anger(_anger):
+	anger += _anger * anger_multiplicator
+
+func add_fear(_fear):
+	fear += _fear * fear_multiplicator
+
 func set_speed(_speed):
 	speed = _speed
 
