@@ -55,17 +55,8 @@ func update_passenger_angry():
 		passenger.ejected_passenger()
 		if(passenger != null):
 			passenger.ejected_passenger()
-<<<<<<< HEAD
-#func anger_for_all_passengers():
-	#var passengers = level.get_tree().get_nodes_in_group("passengers")
-	#for passenger in passengers:
-	#	passenger.connect("ejected", self, "_on_Passenger_ejected_anger")
 
 func update_passengers_with_event(fear, anger, strength, protectiveness, fear_multiplicator, anger_multiplicator):
-=======
-			
-func update_passengers_with_event():
->>>>>>> d024cf3afbcab3b92f4cce8cda72596bbaf5bc4e
 	for passenger in passengers:
 		if(passenger != null):
 			passenger.set_fear(fear)
