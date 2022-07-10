@@ -157,6 +157,7 @@ func ejected_luggage():
 	GameManager.level.get_node("AircraftCabin/EjectionTrajectory").eject(luggage)
 	luggage.eject()
 	luggage = null
+	return true
 #		return true
 #	else :
 #		return false

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/keemstar_scream.mp3-fda3afc56a445435f80933f55a65c445.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Falling Sounds/keemstar_scream.mp3"
+dest_files=[ "res://.import/keemstar_scream.mp3-fda3afc56a445435f80933f55a65c445.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

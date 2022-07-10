@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wilhelm_scream.mp3-3bddb1ecfc63b0f7d0b2e3f1c9171484.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/Falling Sounds/wilhelm_scream.mp3"
+dest_files=[ "res://.import/wilhelm_scream.mp3-3bddb1ecfc63b0f7d0b2e3f1c9171484.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
