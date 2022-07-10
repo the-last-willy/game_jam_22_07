@@ -36,11 +36,13 @@ var anim
 
 var cur_time = 0
 func camera_tremble( camera : Camera ):
-	camera.translation.y += sin( cur_time * 10  ) * 0.001
-	camera.translation.y += sin( cur_time * -20  ) * 0.002
-	camera.translation.x += cos( cur_time * 10  ) * 0.001
-	camera.translation.x += cos( cur_time * -70  ) * 0.002
-	camera.translation.z += cos( cur_time * -30  ) * 0.001
+	var pm = GameManager.progression_manager_instance;
+	var intensity = 1 + pm.inclination[0]
+	camera.translation.y += sin( cur_time * 10  ) * 0.001 * intensity
+	camera.translation.y += sin( cur_time * -20  ) * 0.002 * intensity
+	camera.translation.x += cos( cur_time * 10  ) * 0.001 * intensity
+	camera.translation.x += cos( cur_time * -70  ) * 0.002 * intensity
+	camera.translation.z += cos( cur_time * -30  ) * 0.001 * intensity
 
 func _ready():
 	timer = Timer.new()

@@ -75,32 +75,32 @@ text = "Stress"
 align = 1
 valign = 1
 
-[node name="PlaneLiftBar" type="TextureProgress" parent="."]
+[node name="PlaneHeightBar" type="TextureProgress" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -35.0
+margin_left = -42.0
 margin_top = -200.0
-margin_right = -15.0
+margin_right = -22.0
 margin_bottom = 200.0
-max_value = 5.0
+max_value = 1.0
 step = 0.001
-value = 5.0
+value = 1.0
 texture_under = SubResource( 4 )
 texture_over = SubResource( 6 )
 texture_progress = SubResource( 8 )
 fill_mode = 3
 nine_patch_stretch = true
 
-[node name="Label" type="Label" parent="PlaneLiftBar"]
+[node name="Label" type="Label" parent="PlaneHeightBar"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -20.0
+margin_left = -24.0
 margin_top = -23.0
-margin_right = 20.0
+margin_right = 27.0
 margin_bottom = 4.0
-text = "Lift"
+text = "Altitude"
 align = 1
 valign = 1
 

@@ -16,10 +16,11 @@ func get_lift():
 	return $PlaneLiftBar.value
 	
 func _on_ProgressionManager_inclination_updated(val):
-	$PlaneLiftBar.value = val
+	pass
 
 func _on_ProgressionManager_height_updated(val):
 	$Height.text = "Height: %f" % val
+	$PlaneHeightBar.value = val
 
 func _on_ProgressionManager_supported_load_updated(val):
 	$SupportedLoad.text = "SupLoad: %f" % val
