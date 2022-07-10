@@ -20,8 +20,8 @@ var registered_passengers: Array = []
 func _ready():
 	GameManager.progression_manager_instance = self
 	
-	connect("plane_crashed", GameManager, "game_over")
-	connect("plane_arrived", GameManager, "win")
+	var _ignored = connect("plane_crashed", GameManager, "game_over")
+	_ignored = connect("plane_arrived", GameManager, "win")
 
 func initialize():
 	for passenger in GameManager.passengers:
@@ -34,7 +34,7 @@ func initialize():
 	current_load[0] = current_load[1]
 	supported_load[0] = supported_load[1]
 
-func _process(delta):
+func _process(_delta):
 	progress = 1 - $GameDuration.time_left / 600.0 + .90
 	inclination[1] = max(0, inclination[0] + (current_load[0] - supported_load[0]) / 500)
 	height[1] -= inclination[0] / 5000
@@ -62,7 +62,7 @@ func _process(delta):
 		supported_load[0] = supported_load[1]
 
 func register_luggage(luggage: Node):
-	luggage.connect("ejected", self, "unregister_luggage")
+	var _ignored = luggage.connect("ejected", self, "unregister_luggage")
 	current_load[1] += luggage.get_weight()
 	registered_luggages.push_back(luggage)
 
@@ -71,7 +71,7 @@ func unregister_luggage(luggage: Node):
 	registered_luggages.erase(luggage)
 
 func register_passenger(passenger: Node):
-	passenger.connect("ejected", self, "unregister_passenger")
+	var _ignored = passenger.connect("ejected", self, "unregister_passenger")
 	current_load[1] += passenger.get_weight()
 	registered_passengers.push_back(passenger)
 

@@ -19,11 +19,3 @@ func game_end(win : bool):
 func exit_to_main_menu():
 	get_tree().paused = false
 	var _error_code = get_tree().change_scene_to(main_menu)
-
-
-func _on_ProgressionManager_current_load_updated(val):
-	pass # Replace with function body.
-
-
-func _on_ProgressionManager_supported_load_updated(val):
-	pass # Replace with function body.

@@ -44,7 +44,7 @@ func object_thrown(weight):
 	game_ui_instance.update_stress(anger)
 
 func register_passenger(passenger: Node):
-	passenger.connect("ejected", self, "unregister_passenger")
+	var _ignored = passenger.connect("ejected", self, "unregister_passenger")
 	passengers.push_back(passenger)
 
 func unregister_passenger(passenger: Node):
