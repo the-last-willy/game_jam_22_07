@@ -15,7 +15,7 @@ func get_stress():
 func get_lift():
 	return $PlaneLiftBar.value
 	
-func _on_ProgressionManager_inclination_updated(val):
+func _on_ProgressionManager_inclination_updated(_val):
 	pass
 
 func _on_ProgressionManager_height_updated(val):

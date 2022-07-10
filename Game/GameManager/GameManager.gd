@@ -33,7 +33,7 @@ func update_global_anger(delta):
 	anger = game_ui_instance.get_stress()
 	anger = anger - 0.1 * delta
 	game_ui_instance.update_stress(anger)
-	if(anger >= 100):
+	if(anger >= 99):
 		game_over()
 		return
 
