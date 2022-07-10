@@ -5,7 +5,7 @@
 [ext_resource path="res://Game/Character/CharacterModel.gd" type="Script" id=3]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
-animation = "Confrontation"
+animation = "Confrontation-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=31]
 animation = "Dodge"
@@ -14,16 +14,16 @@ animation = "Dodge"
 animation = "EjectionBack"
 
 [sub_resource type="AnimationNodeAnimation" id=3]
-animation = "EjectionFront"
+animation = "EjectFront"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
-animation = "Fall"
+animation = "Fall-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Grab"
 
 [sub_resource type="AnimationNodeAnimation" id=6]
-animation = "Idle"
+animation = "Idle-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "LuggageThrow"
@@ -32,10 +32,10 @@ animation = "LuggageThrow"
 animation = "Push"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "Sitting"
+animation = "Sitting-loop"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
-animation = "Walk"
+animation = "Walk-loop"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
 xfade_time = 0.2
@@ -116,7 +116,7 @@ states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 807, 94 )
 transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 12 ), "Sitting", "Idle", SubResource( 15 ), "Idle", "Sitting", SubResource( 16 ), "Idle", "Grab", SubResource( 17 ), "Grab", "Idle", SubResource( 18 ), "Idle", "LuggageThrow", SubResource( 19 ), "LuggageThrow", "Idle", SubResource( 20 ), "Idle", "Confrontation", SubResource( 21 ), "Confrontation", "EjectionBack", SubResource( 22 ), "EjectionBack", "Fall", SubResource( 23 ), "Confrontation", "EjectionFront", SubResource( 24 ), "EjectionFront", "Fall", SubResource( 25 ), "Confrontation", "Push", SubResource( 26 ), "Push", "Idle", SubResource( 27 ), "Confrontation", "Dodge", SubResource( 32 ), "Dodge", "Sitting", SubResource( 33 ) ]
 start_node = "Sitting"
-graph_offset = Vector2( -146, -32 )
+graph_offset = Vector2( -183, -108 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
 
