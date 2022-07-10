@@ -84,8 +84,9 @@ margin_left = -35.0
 margin_top = -200.0
 margin_right = -15.0
 margin_bottom = 200.0
+max_value = 5.0
 step = 0.001
-value = 50.0
+value = 5.0
 texture_under = SubResource( 4 )
 texture_over = SubResource( 6 )
 texture_progress = SubResource( 8 )
@@ -104,8 +105,37 @@ align = 1
 valign = 1
 
 [node name="CurrentLoad" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 52.0
+margin_right = 90.0
+margin_bottom = 105.0
+text = "OUPSI
+
+"
+
+[node name="SupportedLoad" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 90.0
+margin_right = 90.0
+margin_bottom = 143.0
+text = "OUPSI
+
+"
+
+[node name="Height" type="Label" parent="."]
 margin_left = 18.0
 margin_top = 18.0
 margin_right = 89.0
 margin_bottom = 71.0
-text = "Charge"
+text = "OUPSI
+
+"
+
+[node name="Progress" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 128.0
+margin_right = 92.0
+margin_bottom = 181.0
+text = "OUPSI
+
+"

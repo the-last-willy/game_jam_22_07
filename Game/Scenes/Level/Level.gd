@@ -1,7 +1,7 @@
 extends Spatial
 
 func _ready():
-	call_deferred("init_level")
+	call_deferred("init_progression_manager")
 
-func init_level():
-	GameManager._on_Level_ready()
+func init_progression_manager():
+	$ProgressionManager.initialize()

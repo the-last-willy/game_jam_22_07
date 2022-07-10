@@ -72,6 +72,7 @@ func _process(delta):
 				var luggage_weight = 0
 				if(opponent.luggage != null):
 					luggage_weight = opponent.luggage.settings["weight"]
+					opponent.luggage.eject()
 					opponent.luggage.queue_free()
 					opponent.luggage = null
 				opponent.eject()
