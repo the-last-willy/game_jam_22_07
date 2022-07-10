@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.s3tc.stex"
-path.etc2="res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.etc2.stex"
+path.s3tc="res://.import/AircraftExterior_albedo.png-ae1f5111ea5b85208527ccf9899355c1.s3tc.stex"
+path.etc2="res://.import/AircraftExterior_albedo.png-ae1f5111ea5b85208527ccf9899355c1.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Scenes/Level/Texture/AircraftCabin_roughness.png"
-dest_files=[ "res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.s3tc.stex", "res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.etc2.stex" ]
+source_file="res://Game/Scenes/Level/Texture/AircraftExterior_albedo.png"
+dest_files=[ "res://.import/AircraftExterior_albedo.png-ae1f5111ea5b85208527ccf9899355c1.s3tc.stex", "res://.import/AircraftExterior_albedo.png-ae1f5111ea5b85208527ccf9899355c1.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

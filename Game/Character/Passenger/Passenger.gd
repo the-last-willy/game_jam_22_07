@@ -88,8 +88,6 @@ func _ready():
 	var _ret = timer.connect("timeout", self, "on_timeout")
 
 func _process(delta):
-	$Label.rect_position = get_viewport().get_camera().unproject_position(global_transform.origin + Vector3.UP * 1.5)
-	$Label.text = str(anger) + " " + str(strength)
 	var rand_val = randi() % 100 * anger_multiplicator
 	var rand_val2 = randi() % 100 * fear_multiplicator
 	if(rand_val < 75 ) :

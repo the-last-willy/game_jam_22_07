@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.s3tc.stex"
-path.etc2="res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.etc2.stex"
+path.s3tc="res://.import/AircraftExterior_roughness.png-70db462710d13d1aa05a181020cc8626.s3tc.stex"
+path.etc2="res://.import/AircraftExterior_roughness.png-70db462710d13d1aa05a181020cc8626.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Scenes/Level/Texture/AircraftCabin_roughness.png"
-dest_files=[ "res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.s3tc.stex", "res://.import/AircraftCabin_roughness.png-0f69bb99ae555fd05bf76ea33050ab6c.etc2.stex" ]
+source_file="res://Game/Scenes/Level/Texture/AircraftExterior_roughness.png"
+dest_files=[ "res://.import/AircraftExterior_roughness.png-70db462710d13d1aa05a181020cc8626.s3tc.stex", "res://.import/AircraftExterior_roughness.png-70db462710d13d1aa05a181020cc8626.etc2.stex" ]
 
 [params]
 
