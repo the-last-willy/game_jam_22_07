@@ -2,8 +2,6 @@ extends Control
 
 func _ready():
 	GameManager.game_ui_instance = self
-	
-	GameManager.connect("current_load_updated", self, "_on_GameManager_current_load_updated")
 
 func update_stress(value):
 	$StressBar.value = value
@@ -17,5 +15,17 @@ func get_stress():
 func get_lift():
 	return $PlaneLiftBar.value
 	
-func _on_GameManager_current_load_updated(val: float):
-	$CurrentLoad.text = "Score: %f" % val
+func _on_ProgressionManager_inclination_updated(val):
+	$PlaneLiftBar.value = val
+
+func _on_ProgressionManager_height_updated(val):
+	$Height.text = "Height: %f" % val
+
+func _on_ProgressionManager_supported_load_updated(val):
+	$SupportedLoad.text = "SupLoad: %f" % val
+
+func _on_ProgressionManager_progress_updated(val):
+	$Progress.text = "Progress: %f" % val
+
+func _on_ProgressionManager_current_load_updated(val):
+	$CurrentLoad.text = "CurLoad: %f" % val
