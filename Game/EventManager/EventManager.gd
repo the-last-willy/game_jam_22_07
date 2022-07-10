@@ -22,7 +22,7 @@ func _ready():
 	first_event.fear = 20
 	
 	event_to_be_played = first_event
-	event_current_delta = 0
+	event_current_delta = 3
 
 
 func init_new_event() -> void:
@@ -34,6 +34,7 @@ func init_new_event() -> void:
 
 func trigger_current_event():
 	$DialogUI.start_reading(event_to_be_played.description)
+	$Sound.play()
 	GameManager.update_passengers_with_event(event_to_be_played)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
